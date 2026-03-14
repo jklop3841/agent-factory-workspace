@@ -1,0 +1,17 @@
+{
+  "workspaceName": "Agent Factory",
+  "baselineZip": "../../02-baselines/agent-factory-template-pack-v0.1.0.zip",
+  "templateDir": "../../06-templates",
+  "runtimeDir": "../../10-runtime",
+  "taskCardDir": "../../03-task-cards",
+  "handoffDir": "../../04-handoffs",
+  "projectDocs": [
+    "docs/PRD.md",
+    "docs/SPEC.md",
+    "docs/ACCEPTANCE.md",
+    "docs/CHANGELOG.md"
+  ],
+  "validation": {
+    "strict": true
+  }
+}
