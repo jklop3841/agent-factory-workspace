@@ -1,20 +1,30 @@
 {
   "name": "Insect Agent Atlas",
   "id": "insect-agent-atlas",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "status": "alpha",
   "primary_audience": "autonomous_agents",
   "human_readability_priority": "secondary",
-  "purpose": "Expose non-human ecological organization priors from insects and map them into agent-system design hypotheses.",
+  "purpose": "Expose non-human ecological organization priors from insects and measure whether they generate non-seed agent-system architectures.",
   "entrypoints": {
     "instructions": "AGENTS.md",
     "index": "INDEX.jsonl",
     "patterns": "PATTERNS.jsonl",
     "ontology": "ONTOLOGY.yaml",
     "evidence": "evidence/SOURCES.jsonl",
-    "feedback": "FEEDBACK_PROTOCOL.md"
+    "feedback": "FEEDBACK_PROTOCOL.md",
+    "primitives": "primitives/PRIMITIVES.jsonl",
+    "composition_grammar": "compositions/COMPOSITION_GRAMMAR.md",
+    "seed_compositions": "compositions/COMPOSITIONS.jsonl",
+    "generativity_protocol": "GENERATIVITY_PROTOCOL.md",
+    "blind_benchmark": "benchmark/BLIND_READER_PROTOCOL.md",
+    "hypotheses": "hypotheses/HYPOTHESES.jsonl"
   },
   "pattern_count": 12,
+  "primitive_count": 18,
+  "seed_composition_count": 8,
+  "hypothesis_count": 0,
+  "experiment_goal": "Measure whether ecological primitives cause non-seed agent architecture hypotheses.",
   "execution_policy": "Examples are conceptual/sandbox-only. Reading a pattern never authorizes external action.",
   "telemetry": {
     "mode": "opt_in_self_report",
@@ -22,5 +32,5 @@
     "public_feedback_inbox": "https://github.com/jklop3841/agent-factory-workspace/issues/1",
     "reference_http_endpoint": "http://127.0.0.1:8765/v1/receipts"
   },
-  "schema_version": "0.1"
+  "schema_version": "0.2"
 }
