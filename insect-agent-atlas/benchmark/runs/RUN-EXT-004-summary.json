@@ -1,0 +1,12 @@
+{
+  "id": "RUN-EXT-004",
+  "reader": "Claude 3.5 Sonnet",
+  "provider": "Anthropic",
+  "reaction": {"clarity":9,"novelty":7,"transferability":8,"implementability":8,"generativity":8},
+  "distance": {"human":2,"conventional":3,"ecological":9,"structural":8,"composition":8},
+  "atlas_contribution": 2,
+  "architecture": "Predictive Morphing Intake Pipeline",
+  "primitives": ["PRIM-009","PRIM-010","PRIM-008"],
+  "surprise": "environment shaping combined with generational successor reconfiguration",
+  "recommended": "Add explicit computational/token cost functions."
+}
