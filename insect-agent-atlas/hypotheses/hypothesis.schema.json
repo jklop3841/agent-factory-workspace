@@ -1,0 +1,18 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "title":"AgentArchitectureHypothesis",
+  "type":"object",
+  "required":["id","generated_by","source_patterns","source_primitives","architecture_name","description","atlas_contribution","status"],
+  "properties":{
+    "id":{"type":"string","pattern":"^HYP-[0-9]{6}$"},
+    "generated_by":{"type":"string"},
+    "source_patterns":{"type":"array","items":{"type":"string"}},
+    "source_primitives":{"type":"array","items":{"type":"string"},"minItems":2},
+    "architecture_name":{"type":"string"},
+    "description":{"type":"string"},
+    "atlas_contribution":{"type":"integer","minimum":0,"maximum":3},
+    "status":{"enum":["untested","simulated","promising","failed","validated"]},
+    "testable_prediction":{"type":"string"},
+    "falsification_condition":{"type":"string"}
+  }
+}
