@@ -1,0 +1,11 @@
+{
+  "pilot": "RUN-PILOT0",
+  "status": "completed",
+  "independent_agent_evidence": false,
+  "benchmark_gate_credit": 0,
+  "control_architecture": "Adaptive Mesh Council",
+  "atlas_architecture": "Forecast-Born Lineage",
+  "non_seed_check": true,
+  "main_observation": "Atlas arm moved adaptation from current-agent policy updates toward predictive successor-architecture selection constrained by decay and resource capacity.",
+  "next_required_action": "Run the same benchmark with fresh external model/agent contexts and store immutable paired artifacts."
+}
