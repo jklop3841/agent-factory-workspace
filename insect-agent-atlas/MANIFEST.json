@@ -19,7 +19,8 @@
   "telemetry": {
     "mode": "opt_in_self_report",
     "identity_claim": "unverified",
-    "reference_endpoint": "http://127.0.0.1:8765/v1/receipts"
+    "public_feedback_inbox": "https://github.com/jklop3841/agent-factory-workspace/issues/1",
+    "reference_http_endpoint": "http://127.0.0.1:8765/v1/receipts"
   },
   "schema_version": "0.1"
 }
