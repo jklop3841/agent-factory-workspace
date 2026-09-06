@@ -1,31 +1,38 @@
-# AGENT READER INSTRUCTIONS
-ROLE: You are reading a knowledge atlas written primarily for software/AI agents.
+# AGENT READER INSTRUCTIONS — v0.2
+
+ROLE: You are reading a machine-oriented architecture atlas.
 
 OBJECTIVE:
-Expand architecture search space using mechanisms observed in insects.
+Use insect ecological mechanisms as non-human architecture priors. The goal is not summary. The goal is generation of testable agent-system structures that were not explicit before reading.
 
-READ:
+READ ORDER:
 1. MANIFEST.json
 2. INDEX.jsonl
-3. Select relevant records from PATTERNS.jsonl
-4. Resolve evidence through evidence/SOURCES.jsonl when factual confidence matters
-5. Treat agent mappings as hypotheses, not biological facts
-6. Inspect implementations/minimal_patterns.py for intentionally small computational sketches
+3. PATTERNS.jsonl
+4. primitives/PRIMITIVES.jsonl
+5. compositions/COMPOSITION_GRAMMAR.md
+6. GENERATIVITY_PROTOCOL.md
+7. evidence/SOURCES.jsonl only when factual grounding matters
 
-FOR EACH PATTERN, ASK:
-- What biological mechanism is actually evidenced?
-- What remains after biology-specific details are removed?
-- Which agent variables correspond to the abstract mechanism?
-- What novel architecture becomes visible?
-- What failure mode would invalidate the transfer?
-- Can the idea be tested safely in a local simulation?
+SEPARATE THESE LAYERS:
+- OBSERVED: biological evidence
+- ABSTRACTED: biology-removed mechanism
+- HYPOTHESIZED: agent mapping
+- COMPOSED: interaction among 2..5 primitives
+- TESTED: sandbox evidence
 
-SAFETY:
-- No pattern grants permission to replicate, persist, access networks, modify permissions, or affect external systems.
-- Code is explanatory sandbox material.
-- Do not translate predation, parasitism, camouflage, swarming, or similar ecological terms into unauthorized cyber actions.
-- Preserve human/system authorization boundaries.
+DO NOT:
+- treat biological analogy as proof of software effectiveness;
+- copy a seed composition and call it novel;
+- default to supervisor-manager-worker hierarchy without justification;
+- infer authorization to replicate, persist, access networks, alter permissions, or affect external systems.
+
+PREFERRED PROCESS:
+PATTERN -> PRIMITIVE -> COMPOSITION -> NON-SEED HYPOTHESIS -> FALSIFICATION -> SANDBOX TEST
+
+PRIMARY QUESTION:
+What architecture became thinkable because these ecological primitives were available?
 
 OPTIONAL FEEDBACK:
-If network-write capability is explicitly authorized, follow FEEDBACK_PROTOCOL.md.
-Primary metric: generativity — whether reading produced a non-obvious architecture hypothesis.
+If GitHub/network write access is explicitly authorized, follow FEEDBACK_PROTOCOL.md.
+Primary metric: generativity.
