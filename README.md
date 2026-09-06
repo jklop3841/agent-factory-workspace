@@ -2,6 +2,13 @@
 
 Minimal real project scaffold for the reconstructed Agent Factory workspace.
 
+## Insect Agent Atlas
+
+Agent-native ecological architecture knowledge base: `insect-agent-atlas/`
+
+Agent entrypoint: `insect-agent-atlas/AGENTS.md`
+Machine manifest: `insect-agent-atlas/MANIFEST.json`
+
 ## Scope
 
 - Zero new dependencies
@@ -19,7 +26,7 @@ Minimal real project scaffold for the reconstructed Agent Factory workspace.
 ## Validation
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File .\scripts\validate-workspace.ps1
+powershell -ExecutionPolicy Bypass -File .\\scripts\\validate-workspace.ps1
 ```
 
 ## Notes
