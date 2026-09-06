@@ -1,0 +1,15 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "title":"InsectAgentComposition",
+  "type":"object",
+  "required":["id","name","source_patterns","primitives","composition_logic","novelty_status","test_required"],
+  "properties":{
+    "id":{"type":"string","pattern":"^COMP-[0-9]{3}$"},
+    "name":{"type":"string"},
+    "source_patterns":{"type":"array","items":{"type":"string"},"minItems":1},
+    "primitives":{"type":"array","items":{"type":"string"},"minItems":2,"maxItems":5},
+    "composition_logic":{"type":"string"},
+    "novelty_status":{"type":"string"},
+    "test_required":{"type":"boolean"}
+  }
+}
