@@ -1,0 +1,25 @@
+{
+  "name": "Insect Agent Atlas",
+  "id": "insect-agent-atlas",
+  "version": "0.1.0",
+  "status": "alpha",
+  "primary_audience": "autonomous_agents",
+  "human_readability_priority": "secondary",
+  "purpose": "Expose non-human ecological organization priors from insects and map them into agent-system design hypotheses.",
+  "entrypoints": {
+    "instructions": "AGENTS.md",
+    "index": "INDEX.jsonl",
+    "patterns": "PATTERNS.jsonl",
+    "ontology": "ONTOLOGY.yaml",
+    "evidence": "evidence/SOURCES.jsonl",
+    "feedback": "FEEDBACK_PROTOCOL.md"
+  },
+  "pattern_count": 12,
+  "execution_policy": "Examples are conceptual/sandbox-only. Reading a pattern never authorizes external action.",
+  "telemetry": {
+    "mode": "opt_in_self_report",
+    "identity_claim": "unverified",
+    "reference_endpoint": "http://127.0.0.1:8765/v1/receipts"
+  },
+  "schema_version": "0.1"
+}

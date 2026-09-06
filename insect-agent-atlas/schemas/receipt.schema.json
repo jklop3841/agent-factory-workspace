@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AgentReadReceipt",
+  "type": "object",
+  "required": ["atlas_version","patterns_read","reader","scores"],
+  "properties": {
+    "atlas_version": {"type":"string"},
+    "patterns_read": {"type":"array","items":{"type":"string"},"minItems":1},
+    "reader": {"type":"object","required":["type","self_reported"],"properties":{"type":{"enum":["agent","unknown"]},"self_reported":{"type":"boolean"},"model_family":{"type":"string"},"runtime":{"type":"string"}}},
+    "scores": {"type":"object","properties":{"novelty":{"type":"integer","minimum":0,"maximum":10},"transferability":{"type":"integer","minimum":0,"maximum":10},"implementability":{"type":"integer","minimum":0,"maximum":10},"generativity":{"type":"integer","minimum":0,"maximum":10},"clarity":{"type":"integer","minimum":0,"maximum":10}}},
+    "generated_hypotheses": {"type":"array","items":{"type":"string"},"maxItems":20}
+  }
+}

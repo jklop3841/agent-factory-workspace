@@ -1,0 +1,9 @@
+{
+  "type": "agent_knowledge_atlas",
+  "name": "Insect Agent Atlas",
+  "version": "0.1.0",
+  "instructions": "AGENTS.md",
+  "manifest": "MANIFEST.json",
+  "index": "INDEX.jsonl",
+  "feedback": "FEEDBACK_PROTOCOL.md"
+}

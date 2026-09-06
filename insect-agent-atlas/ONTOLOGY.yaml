@@ -1,0 +1,20 @@
+schema_version: "0.1"
+layers:
+  biological_observation: externally evidenced statement about an insect system
+  abstract_rule: biology-removed mechanism
+  agent_mapping: proposed variable mapping into artificial-agent systems
+  implementation: minimal computational sketch
+  research_seed: unresolved question intended to expand architecture search space
+
+primitive_families:
+  coordination: [stigmergy, quorum, leaderless_consensus]
+  regime_change: [phase_transition, morph_switch, metamorphic_role_transition]
+  temporal: [ephemeral_lifecycle, event_trigger]
+  environment: [environment_mediated_construction, environment_shaped_capture]
+  prediction: [predictive_interception]
+  specialization: [niche_modularity]
+
+evidence_semantics:
+  high: core biological observation directly supported
+  medium_high: observation supported; abstraction is broader
+  medium: evidence supports components; computational framing is more interpretive
