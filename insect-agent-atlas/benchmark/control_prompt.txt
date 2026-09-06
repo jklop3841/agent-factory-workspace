@@ -1,0 +1,6 @@
+Design one unusual multi-agent architecture for solving a changing, partially observable task environment.
+
+Do not use a conventional supervisor-manager-worker hierarchy unless it is necessary.
+
+Return JSON with:
+name, structure, coordination, lifecycle, memory, adaptation, failure_modes, testable_prediction.
