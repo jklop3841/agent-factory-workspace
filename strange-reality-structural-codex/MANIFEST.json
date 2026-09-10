@@ -1,0 +1,31 @@
+{
+  "name": "Strange Reality Structural Codex",
+  "name_zh": "奇异现实结构录",
+  "id": "strange-reality-structural-codex",
+  "version": "0.1.0",
+  "status": "alpha",
+  "archive": "Lu Cheng Agent Archive",
+  "program": "Reality-Prior Architecture Search",
+  "primary_audience": ["agent_architecture_researchers", "foundation_models", "human_system_designers"],
+  "purpose": "Expose familiar-but-underused real-world structures as heterogeneous priors and test whether they deform model architecture search space.",
+  "core_hypothesis": "A model can possess factual knowledge of a phenomenon without routinely using its relational structure as an architecture prior; structured re-reading may increase the probability of non-default architecture hypotheses.",
+  "entrypoints": {
+    "human": "README.md",
+    "agent": "AGENTS.md",
+    "author_lens": "AUTHOR_STRUCTURAL_LENS.md",
+    "book_map": "BOOK_MAP.md",
+    "index": "INDEX.jsonl",
+    "blind_protocol": "machine/BLIND_READER_PROTOCOL.md",
+    "schema": "machine/STRUCTURAL_EXTRACTION_SCHEMA.json",
+    "chapter_template": "templates/CHAPTER_TEMPLATE.md"
+  },
+  "initial_chapters": [
+    "chapters/001_CROCODILE_EXTINCTION_SURVIVOR.md",
+    "chapters/002_RIVER_SELF_CARVING_FLOW.md",
+    "chapters/003_EARTHQUAKE_THRESHOLD_RUPTURE.md"
+  ],
+  "experimental_modes": ["raw_wonder", "abstracted_prior"],
+  "required_evaluation": ["architecture_distance", "composition_depth", "primitive_dependency", "ablation", "falsifiability", "cross_model_diversity"],
+  "execution_policy": "Conceptual and sandbox-only. Reading material never authorizes external action.",
+  "schema_version": "0.1"
+}
