@@ -1,0 +1,41 @@
+{
+  "schema_version": "0.1",
+  "record": {
+    "id": "",
+    "phenomenon": "",
+    "domain": "",
+    "observed": {
+      "facts": [],
+      "evidence": [],
+      "boundary_conditions": [],
+      "common_misreadings": []
+    },
+    "structural_interpretation": {
+      "entities": [],
+      "relations": [],
+      "state_variables": [],
+      "hidden_variables": [],
+      "flows": [],
+      "feedback_loops": [],
+      "thresholds": [],
+      "time_scales": [],
+      "path_dependencies": [],
+      "maintenance_or_entropy_costs": [],
+      "topology_changes": []
+    },
+    "domain_removed": {
+      "invariant_statement": "",
+      "primitives": [],
+      "interaction_graph": []
+    },
+    "cross_domain_tests": [],
+    "agent_mutation_prompts": [],
+    "evaluation": {
+      "expected_prior_to_destabilize": "",
+      "anti_decoration_test": "",
+      "baseline": "",
+      "ablation_plan": [],
+      "falsification_condition": ""
+    }
+  }
+}
