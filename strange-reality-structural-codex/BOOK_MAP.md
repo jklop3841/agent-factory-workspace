@@ -1,4 +1,4 @@
-# BOOK MAP v0.2
+# BOOK MAP v0.3
 
 本书按“结构行为”组织，不按传统学科组织。一个章节可以来自动物、地质、水文、气候、材料、生态、经济或人造制度，只要它能暴露一个模型平时很少拿来设计系统的现实结构。
 
@@ -20,6 +20,8 @@
   - exploratory frontier / speculative branching / channel formation / attachment / commitment transition
 - 007｜金钱：人类创造的符号，为什么开始反过来塑造人类
   - symbolic compression / universal interface / dependency field / proxy inversion / recursive amplification / representation capture
+- 008｜漩涡：成员不断更换，结构为什么还能存在
+  - persistent pattern / transient membership / relational identity / dynamic boundary / continuous regeneration / pattern death
 
 ---
 
@@ -52,13 +54,15 @@
 
 ## Part IV — 没有总设计图，也能长出形状
 
-研究对象：形态发生、局部规则、边界条件、场、相互作用。
+研究对象：形态发生、局部规则、边界条件、场、相互作用，以及“成员变化但模式持续”的关系型身份。
+
+已进入：
+- 漩涡：成员不断更换，结构为什么还能存在
 
 候选：
 - 沙丘：粒子局部搬运如何形成会迁移的宏观结构
 - 雪花：局部生长规则如何放大边界差异
 - 晶体：局部附着与缺陷如何共同决定全局形态
-- 漩涡：没有永久组成成员，为什么模式仍然持续存在
 
 ## Part V — 慢力量
 
