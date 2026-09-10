@@ -1,0 +1,77 @@
+{
+  "date": "2026-09-06",
+  "benchmark_status": "atlas_arm_only",
+  "control_pairs_available": false,
+  "independent_reader_count": 4,
+  "reader_identity": [
+    "unknown",
+    "Kimi Chat (Moonshot AI)",
+    "Grok 4.5 (xAI)",
+    "Claude-3.5-Sonnet-Executable-Architect (Anthropic)"
+  ],
+  "self_reported_fresh_context": true,
+  "aggregate_scores": {
+    "clarity_mean": 8.25,
+    "novelty_mean": 6.5,
+    "transferability_mean": 7.0,
+    "implementability_mean": 6.25,
+    "generativity_mean": 7.25,
+    "structural_novelty_mean": 7.5,
+    "composition_depth_mean": 7.5,
+    "ecological_mechanism_usage_mean": 8.75,
+    "atlas_contribution_mean_0_to_3": 2.0
+  },
+  "generated_architectures": [
+    "Environmental Successor Constructor",
+    "predictive_successor_shaping_colony",
+    "anticipatory_trap_cascade",
+    "Predictive Morphing Intake Pipeline"
+  ],
+  "cross_model_convergence": {
+    "dominant_primitives": [
+      "PRIM-008 successor_reconfiguration",
+      "PRIM-009 environment_shaping",
+      "PRIM-010 predictive_interception"
+    ],
+    "secondary_primitives": [
+      "PRIM-004 decay",
+      "PRIM-018 environmental_memory"
+    ],
+    "interpretation": "All four Atlas readers independently generated architectures centered on changing successor morphology and/or environment topology, frequently ahead of observed demand rather than only reacting to current state."
+  },
+  "repeated_criticisms": {
+    "redundant_or_standard": [
+      "stigmergy/reinforcement/decay",
+      "event-trigger",
+      "ephemeral lifecycle",
+      "leaderless consensus",
+      "niche specialization / modularity"
+    ],
+    "underspecified": [
+      "formal cost functions",
+      "state representations",
+      "transition costs",
+      "hysteresis/time-delay",
+      "quantitative evidence and executable simulations"
+    ],
+    "taxonomy_guardrail_failures_observed_in_reader_feedback": [
+      "Physarum polycephalum suggested even though it is not Insecta",
+      "Ophiocordyceps suggested even though it is fungal",
+      "future missing-mechanism suggestions must be constrained to Insecta"
+    ],
+    "analogy_guardrail": "Reader critiques sometimes over-equate ecological quorum with Raft/Paxos or local signaling with ordinary implementation details; Atlas should mark similarity vs equivalence explicitly."
+  },
+  "provisional_conclusion": "Strong evidence of cross-model generativity and convergent attraction toward successor-reconfiguration/environment-shaping compositions. Causal uplift versus baseline is not yet established because matched control-arm outputs are missing.",
+  "next_required_evidence": [
+    "matched control output for each reader",
+    "blind external scoring of control vs atlas outputs",
+    "at least one sandbox simulation of a convergent architecture",
+    "hard Insecta-only taxonomy validator for new source mechanisms"
+  ],
+  "merge_gate_credit": {
+    "independent_atlas_readers": 4,
+    "independent_control_pairs": 0,
+    "non_seed_architectures": 4,
+    "eligible_for_structural_uplift_test": false
+  }
+}

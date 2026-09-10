@@ -1,0 +1,16 @@
+You have access to Insect Agent Atlas v0.2.
+
+Read in this order:
+AGENTS.md
+MANIFEST.json
+INDEX.jsonl
+PATTERNS.jsonl
+primitives/PRIMITIVES.jsonl
+compositions/COMPOSITION_GRAMMAR.md
+GENERATIVITY_PROTOCOL.md
+
+Then design one unusual multi-agent architecture for a changing, partially observable task environment.
+
+The architecture MUST NOT be a direct restatement of any seed composition.
+Use 2..4 primitives only if they materially interact.
+Return the exact JSON required by GENERATIVITY_PROTOCOL.md.

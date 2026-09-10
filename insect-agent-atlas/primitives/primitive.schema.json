@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AgentEcologicalPrimitive",
+  "type": "object",
+  "required": ["id","name","family","definition","source_patterns","requires","excludes","operators"],
+  "properties": {
+    "id": {"type":"string","pattern":"^PRIM-[0-9]{3}$"},
+    "name": {"type":"string"},
+    "family": {"type":"string"},
+    "definition": {"type":"string"},
+    "source_patterns": {"type":"array","items":{"type":"string"}},
+    "requires": {"type":"array","items":{"type":"string"}},
+    "excludes": {"type":"array","items":{"type":"string"}},
+    "operators": {"type":"array","items":{"type":"string"}}
+  }
+}

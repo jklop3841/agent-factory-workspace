@@ -1,0 +1,17 @@
+{
+  "run_id": "RUN-PILOT0",
+  "arm": "control",
+  "independent_agent": false,
+  "evidence_class": "protocol_smoke_test_only",
+  "model_note": "Generated in the current assistant session under the control prompt; not eligible for independent-agent benchmark counts.",
+  "output": {
+    "name": "Adaptive Mesh Council",
+    "structure": "Peer agents maintain local hypotheses and confidence estimates. A shared append-only event log exposes observations. When uncertainty or contradiction rises, temporary deliberation clusters form around the affected subproblem and dissolve after convergence.",
+    "coordination": "Publish/subscribe observations, contradiction checks, temporary peer voting, confidence reweighting.",
+    "lifecycle": "Persistent peer agents with short-lived task sessions.",
+    "memory": "Shared event log plus local compressed summaries.",
+    "adaptation": "Reweight peers and create temporary evaluator sessions when uncertainty spikes or environmental assumptions change.",
+    "failure_modes": ["correlated_error", "echo_chamber", "event_log_bloat", "slow_consensus"],
+    "testable_prediction": "Temporary deliberation clusters should reduce recovery time after task-regime changes compared with a fixed peer topology."
+  }
+}

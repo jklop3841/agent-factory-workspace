@@ -1,0 +1,14 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "title":"BlindReaderScore",
+  "type":"object",
+  "required":["human_organization_similarity","conventional_agent_similarity","ecological_mechanism_usage","structural_novelty","composition_depth"],
+  "properties":{
+    "human_organization_similarity":{"type":"integer","minimum":0,"maximum":10},
+    "conventional_agent_similarity":{"type":"integer","minimum":0,"maximum":10},
+    "ecological_mechanism_usage":{"type":"integer","minimum":0,"maximum":10},
+    "structural_novelty":{"type":"integer","minimum":0,"maximum":10},
+    "composition_depth":{"type":"integer","minimum":0,"maximum":10},
+    "notes":{"type":"string"}
+  }
+}

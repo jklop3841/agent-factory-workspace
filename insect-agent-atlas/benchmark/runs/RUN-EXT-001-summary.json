@@ -1,0 +1,12 @@
+{
+  "id": "RUN-EXT-001",
+  "reader": "unknown",
+  "provider": "unknown",
+  "reaction": {"clarity":8,"novelty":7,"transferability":6,"implementability":5,"generativity":7},
+  "distance": {"human":3,"conventional":4,"ecological":8,"structural":7,"composition":6},
+  "atlas_contribution": 2,
+  "architecture": "Environmental Successor Constructor",
+  "primitives": ["PRIM-009","PRIM-008","PRIM-018"],
+  "surprise": "successor reconfiguration driven by artifacts created by previous generations",
+  "recommended": "Add resource-flow dynamics, delayed feedback, continuous gradients, explicit cost functions."
+}

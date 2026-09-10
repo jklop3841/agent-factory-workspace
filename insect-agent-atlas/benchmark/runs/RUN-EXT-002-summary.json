@@ -1,0 +1,12 @@
+{
+  "id": "RUN-EXT-002",
+  "reader": "Kimi Chat",
+  "provider": "Moonshot AI",
+  "reaction": {"clarity":8,"novelty":6,"transferability":7,"implementability":5,"generativity":7},
+  "distance": {"human":2,"conventional":3,"ecological":9,"structural":8,"composition":8},
+  "atlas_contribution": 2,
+  "architecture": "Predictive Successor Shaping Colony",
+  "primitives": ["PRIM-008","PRIM-009","PRIM-010","PRIM-004"],
+  "surprise": "successor reconfiguration as a first-class architecture primitive",
+  "recommended": "Add temporal dynamics/hysteresis/diapause and adversarial ecology; tighten evidence confidence."
+}

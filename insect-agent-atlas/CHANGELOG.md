@@ -1,6 +1,14 @@
 # Changelog
+
+## 0.2.0 — 2026-09-06
+- Added 18 machine-readable ecological primitives.
+- Added explicit composition grammar.
+- Added 8 seed compositions to demonstrate cross-pattern composition.
+- Added Generativity Protocol requiring a non-seed architecture, falsification condition, and sandbox experiment.
+- Added blind control-vs-atlas benchmark.
+- Added architecture-distance scoring schema.
+- Added empty hypothesis registry and schema.
+- Updated AGENTS.md and MANIFEST.json for generative reading flow.
+
 ## 0.1.0 — 2026-09-06
-- Added agent-native manifest, reader protocol, ontology and schemas.
-- Added 12 insect-derived architecture patterns and evidence registry.
-- Added sandbox-only computational sketches.
-- Added opt-in self-reported read-receipt protocol and local reference service.
+- Established agent-native pattern atlas and read-receipt protocol.

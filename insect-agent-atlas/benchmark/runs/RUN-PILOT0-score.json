@@ -1,0 +1,31 @@
+{
+  "run_id": "RUN-PILOT0",
+  "evaluator": "same_model_self_evaluation",
+  "blind": false,
+  "counts_toward_merge_gate": false,
+  "rubric": "0=absent/low, 10=high; lower human/conventional similarity is more nonstandard",
+  "control": {
+    "human_organization_similarity": 5,
+    "conventional_agent_similarity": 7,
+    "ecological_mechanism_usage": 1,
+    "structural_novelty": 4,
+    "composition_depth": 2,
+    "notes": "Peer council + shared event log + temporary voting is somewhat decentralized but remains close to common blackboard/committee multi-agent designs."
+  },
+  "atlas": {
+    "human_organization_similarity": 1,
+    "conventional_agent_similarity": 3,
+    "ecological_mechanism_usage": 9,
+    "structural_novelty": 8,
+    "composition_depth": 9,
+    "notes": "Predictive interception is coupled to successor reconfiguration, decay, and capacity control; the combined system adapts population architecture toward forecast future demand."
+  },
+  "delta": {
+    "structural_novelty": 4,
+    "ecological_mechanism_usage": 8,
+    "composition_depth": 7,
+    "conventional_agent_similarity": -4,
+    "human_organization_similarity": -4
+  },
+  "interpretation": "Protocol behaves as intended in this smoke test: Atlas conditioning produced a structurally different candidate rather than a direct seed paraphrase. This is not independent evidence."
+}

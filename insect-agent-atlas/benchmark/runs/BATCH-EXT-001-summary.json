@@ -1,0 +1,38 @@
+{
+  "batch_id": "BATCH-EXT-001",
+  "eligible_external_readers": 4,
+  "control_pairs_available": 0,
+  "mean_scores": {
+    "clarity": 8.25,
+    "novelty": 6.5,
+    "transferability": 7.0,
+    "implementability": 6.25,
+    "generativity": 7.25,
+    "human_organization_similarity": 2.25,
+    "conventional_agent_similarity": 3.25,
+    "ecological_mechanism_usage": 8.75,
+    "structural_novelty": 7.5,
+    "composition_depth": 7.5,
+    "atlas_contribution": 2.0
+  },
+  "primitive_frequency": {
+    "PRIM-008": 4,
+    "PRIM-009": 4,
+    "PRIM-010": 3,
+    "PRIM-004": 1,
+    "PRIM-011": 1,
+    "PRIM-018": 1
+  },
+  "convergence": {
+    "all_four_use_successor_reconfiguration": true,
+    "all_four_use_environment_shaping": true,
+    "three_of_four_use_predictive_interception": true,
+    "interpretation": "Strong cross-model attractor around environment shaping + successor architecture. This is evidence of salience, but not yet evidence of broad search-space expansion."
+  },
+  "next_gate": {
+    "need_control_outputs_from_same_models": true,
+    "need_diversity_test_without_seed_compositions": true,
+    "need_leave_one_family_out_ablation": true,
+    "need_external_blind_scorer": true
+  }
+}
