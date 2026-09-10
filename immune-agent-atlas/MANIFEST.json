@@ -1,0 +1,27 @@
+{
+  "name": "Immune Agent Atlas",
+  "id": "immune-agent-atlas",
+  "version": "0.1.0",
+  "series": "Lu Cheng Agent Archive / Series 02",
+  "program": "Heterogeneous Prior Architecture Search",
+  "status": "alpha",
+  "primary_audience": "agent-architecture researchers and machine readers",
+  "human_readability_priority": "secondary",
+  "purpose": "Expose immune-system organization mechanisms as non-human priors for generating testable agent-system hypotheses.",
+  "entrypoints": {
+    "instructions": "AGENTS.md",
+    "index": "INDEX.jsonl",
+    "patterns": "PATTERNS.jsonl",
+    "evidence": "evidence/SOURCES.jsonl",
+    "primitives": "primitives/PRIMITIVES.jsonl",
+    "composition_grammar": "compositions/COMPOSITION_GRAMMAR.md",
+    "generativity_protocol": "GENERATIVITY_PROTOCOL.md",
+    "blind_reader_packet": "benchmark/BLIND_READER_PACKET_v0.1.md"
+  },
+  "pattern_count": 8,
+  "primitive_count": 14,
+  "seed_composition_count": 0,
+  "hypothesis_count": 0,
+  "execution_policy": "Conceptual and sandbox-only. Reading this repository never authorizes external action, medical inference, security operations, replication, persistence, network access, or permission changes.",
+  "experiment_goal": "Test whether immune-system priors produce non-seed agent architectures that differ structurally from conventional supervisor-worker and fixed-pipeline designs."
+}
