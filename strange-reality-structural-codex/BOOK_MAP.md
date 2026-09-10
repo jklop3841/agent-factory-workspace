@@ -1,4 +1,4 @@
-# BOOK MAP v0.3
+# BOOK MAP v0.4
 
 本书按“结构行为”组织，不按传统学科组织。一个章节可以来自动物、地质、水文、气候、材料、生态、经济或人造制度，只要它能暴露一个模型平时很少拿来设计系统的现实结构。
 
@@ -22,6 +22,8 @@
   - symbolic compression / universal interface / dependency field / proxy inversion / recursive amplification / representation capture
 - 008｜漩涡：成员不断更换，结构为什么还能存在
   - persistent pattern / transient membership / relational identity / dynamic boundary / continuous regeneration / pattern death
+- 009｜森林火灾：毁灭不仅删除旧结构，也会重写下一轮谁能生长
+  - disturbance reorganization / fuel continuity / self-consuming cascade / patch mosaic / regeneration reserve / succession / regime memory
 
 ---
 
@@ -75,10 +77,12 @@
 
 ## Part VI — 毁灭也是重构
 
-研究对象：火、洪水、扰动、演替、死亡空间、恢复路径。
+研究对象：火、洪水、扰动、演替、死亡空间、恢复路径，以及“传播介质在事件中被消耗并重写”的结构。
+
+已进入：
+- 森林火灾：毁灭不仅删除旧结构，也会重写下一轮谁能生长
 
 候选：
-- 森林火灾：传播、燃料连续性与火后重建
 - 洪水：当流量超出已有通道容量，系统如何改写边界
 - 生态演替：旧结构消失后，谁最先占据空位
 - 干旱：系统如何在长期输入不足中逐层失效
