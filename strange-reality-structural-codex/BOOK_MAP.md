@@ -1,6 +1,6 @@
-# BOOK MAP v0.7
+# BOOK MAP v0.8
 
-本书按“结构行为”组织，不按传统学科组织。一个章节可以来自动物、地质、水文、气候、材料、生态、经济、制度、教育或机器系统，只要它能暴露一个模型平时很少拿来设计系统的现实结构。
+本书按“结构行为”组织，不按传统学科组织。一个章节可以来自动物、地质、水文、气候、材料、生态、经济、制度、教育、组织或机器系统，只要它能暴露一个模型平时很少拿来设计系统的现实结构。
 
 正式章节编号只用于已经写入的章节；未来候选不再预占编号，避免候选地图与实际写作顺序冲突。
 
@@ -30,6 +30,8 @@
   - topology-flow coevolution / growth-as-routing / source-sink reversal / branch fusion / edge reinforcement / edge regression / resource recycling / damage rerouting
 - 012｜考试：测量学习的工具，为什么会反过来重塑学习本身
   - measurement-control inversion / stakes coupling / proxy compression / washback / behavioral reallocation / blind-zone growth / observer-actuator transition
+- 013｜KPI：组织为了看见自己创造指标，指标为什么最后开始制造组织
+  - measurement-control inversion / target fixation / local optimization / ratchet effect / threshold effect / tunnel vision / metric-induced topology / target drift
 
 ---
 
@@ -122,14 +124,14 @@
 
 ## Part IX — 人类创造的系统反过来创造人类
 
-研究对象：符号、制度、指标、平台、市场、教育和技术一开始服务于人，后来通过依赖、激励、评价与选择机制重新塑造参与者。
+研究对象：符号、制度、指标、平台、市场、教育、组织和技术一开始服务于人，后来通过依赖、激励、评价、奖惩与资源分配重新塑造参与者。
 
 已进入：
 - 金钱：通用协调符号如何成为选择环境
 - 考试：测量学习的工具如何反过来塑造学习本身
+- KPI：观察组织的指标如何反过来制造组织行为与组织拓扑
 
 候选：
-- KPI：观察组织的指标如何反过来制造组织行为
 - 社交媒体推荐：分发机制如何塑造创作者与受众
 - 信用评分：描述风险的数字如何改变人的机会空间
 - 学术引用：知识痕迹如何成为资源分配接口
@@ -144,6 +146,8 @@
 已进入的跨章结构：
 - Representation Capture：表征开始重塑被表征对象
 - Measurement–Control Inversion：测量器因 stakes coupling 从 observer 变成 actuator
+- Metric-Induced Topology：指标长期改变真实协作、资源与责任网络
+- Target Drift：参与者适应评分规则后，proxy 与真实目标可能逐渐脱钩
 
 候选：
 - Goodhart/Campbell 型目标漂移
@@ -160,7 +164,7 @@
 
 1. 存在非显然的关系结构，而不仅是“很神奇”。
 2. 结构可以脱离原对象名称后仍然成立。
-3. 含有反馈、阈值、路径依赖、多时间尺度、形态变化、资源流、边界变化、选择压力、测量反馈或恢复机制中的至少一种。
+3. 含有反馈、阈值、路径依赖、多时间尺度、形态变化、资源流、边界变化、选择压力、测量反馈、激励适应或恢复机制中的至少一种。
 4. 能挑战常见 Agent 默认假设。
 5. 可以提出安全的模拟、对照与消融实验。
 6. 科学/历史事实与作者结构推导可以明确分层。
