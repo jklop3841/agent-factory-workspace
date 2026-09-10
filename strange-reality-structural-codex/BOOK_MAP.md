@@ -1,4 +1,4 @@
-# BOOK MAP v0.8
+# BOOK MAP v0.9
 
 本书按“结构行为”组织，不按传统学科组织。一个章节可以来自动物、地质、水文、气候、材料、生态、经济、制度、教育、组织或机器系统，只要它能暴露一个模型平时很少拿来设计系统的现实结构。
 
@@ -32,6 +32,8 @@
   - measurement-control inversion / stakes coupling / proxy compression / washback / behavioral reallocation / blind-zone growth / observer-actuator transition
 - 013｜KPI：组织为了看见自己创造指标，指标为什么最后开始制造组织
   - measurement-control inversion / target fixation / local optimization / ratchet effect / threshold effect / tunnel vision / metric-induced topology / target drift
+- 014｜珊瑚礁：参与者不仅适应环境，还会制造后来者赖以生存的环境
+  - niche construction / ecosystem engineering / cumulative infrastructure / inherited substrate / construction-erosion balance / successor dependency
 
 ---
 
@@ -112,13 +114,13 @@
 
 ## Part VIII — 多系统相互制造彼此
 
-研究对象：共生、竞争、生态位、网络互依、共同演化，以及“网络拓扑与资源流如何彼此塑造”的结构。
+研究对象：共生、竞争、生态位、网络互依、共同演化，以及“网络拓扑与资源流如何彼此塑造”“参与者如何制造后来者依赖的环境”等结构。
 
 已进入：
 - 菌丝网络：网络不是建好以后才运输，而是在运输中继续生长和重构
+- 珊瑚礁：参与者不仅适应环境，还会制造后来者赖以生存的环境
 
 候选：
-- 珊瑚礁：生命如何制造后来者依赖的物理基础设施
 - 捕食者—猎物周期：双方策略如何互相生成
 - 生态位构建：参与者如何改变自己的选择环境
 
@@ -148,6 +150,7 @@
 - Measurement–Control Inversion：测量器因 stakes coupling 从 observer 变成 actuator
 - Metric-Induced Topology：指标长期改变真实协作、资源与责任网络
 - Target Drift：参与者适应评分规则后，proxy 与真实目标可能逐渐脱钩
+- Environment Is Accumulated Behavior：今天的环境可能是过去参与者行为沉积成的基础设施
 
 候选：
 - Goodhart/Campbell 型目标漂移
@@ -164,7 +167,7 @@
 
 1. 存在非显然的关系结构，而不仅是“很神奇”。
 2. 结构可以脱离原对象名称后仍然成立。
-3. 含有反馈、阈值、路径依赖、多时间尺度、形态变化、资源流、边界变化、选择压力、测量反馈、激励适应或恢复机制中的至少一种。
+3. 含有反馈、阈值、路径依赖、多时间尺度、形态变化、资源流、边界变化、选择压力、测量反馈、激励适应、环境建构或恢复机制中的至少一种。
 4. 能挑战常见 Agent 默认假设。
 5. 可以提出安全的模拟、对照与消融实验。
 6. 科学/历史事实与作者结构推导可以明确分层。
