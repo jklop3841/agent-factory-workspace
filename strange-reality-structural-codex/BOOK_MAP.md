@@ -1,4 +1,4 @@
-# BOOK MAP v0.4
+# BOOK MAP v0.5
 
 本书按“结构行为”组织，不按传统学科组织。一个章节可以来自动物、地质、水文、气候、材料、生态、经济或人造制度，只要它能暴露一个模型平时很少拿来设计系统的现实结构。
 
@@ -24,6 +24,8 @@
   - persistent pattern / transient membership / relational identity / dynamic boundary / continuous regeneration / pattern death
 - 009｜森林火灾：毁灭不仅删除旧结构，也会重写下一轮谁能生长
   - disturbance reorganization / fuel continuity / self-consuming cascade / patch mosaic / regeneration reserve / succession / regime memory
+- 010｜潮汐：遥远的力量，为什么能让本地系统按节律行动
+  - remote periodic forcing / multi-source superposition / local transfer function / phase lag / predictive synchronization / residual disturbance
 
 ---
 
@@ -89,10 +91,12 @@
 
 ## Part VII — 周期、外力与同步
 
-研究对象：节律、外部周期力、锁相、滞后、周期性资源窗口。
+研究对象：节律、外部周期力、锁相、滞后、周期性资源窗口，以及“共同外力如何被不同本地结构翻译成不同响应”的结构。
+
+已进入：
+- 潮汐：遥远的力量，为什么能让本地系统按节律行动
 
 候选：
-- 潮汐：系统如何被遥远外力周期性驱动
 - 季节性迁徙：环境窗口如何决定策略切换
 - 厄尔尼诺/南方涛动：远距离耦合如何制造全球关联
 - 昼夜节律：预测性周期控制与事后响应有什么不同
