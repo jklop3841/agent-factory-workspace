@@ -1,4 +1,4 @@
-# BOOK MAP v0.5
+# BOOK MAP v0.6
 
 本书按“结构行为”组织，不按传统学科组织。一个章节可以来自动物、地质、水文、气候、材料、生态、经济或人造制度，只要它能暴露一个模型平时很少拿来设计系统的现实结构。
 
@@ -26,6 +26,8 @@
   - disturbance reorganization / fuel continuity / self-consuming cascade / patch mosaic / regeneration reserve / succession / regime memory
 - 010｜潮汐：遥远的力量，为什么能让本地系统按节律行动
   - remote periodic forcing / multi-source superposition / local transfer function / phase lag / predictive synchronization / residual disturbance
+- 011｜菌丝网络：网络不是建好以后才运输，而是在运输中继续生长和重构
+  - topology-flow coevolution / growth-as-routing / source-sink reversal / branch fusion / edge reinforcement / edge regression / resource recycling / damage rerouting
 
 ---
 
@@ -103,10 +105,12 @@
 
 ## Part VIII — 多系统相互制造彼此
 
-研究对象：共生、竞争、生态位、网络互依、共同演化。
+研究对象：共生、竞争、生态位、网络互依、共同演化，以及“网络拓扑与资源流如何彼此塑造”的结构。
+
+已进入：
+- 菌丝网络：网络不是建好以后才运输，而是在运输中继续生长和重构
 
 候选：
-- 菌丝网络：运输网络如何边生长边重构
 - 珊瑚礁：生命如何制造后来者依赖的物理基础设施
 - 捕食者—猎物周期：双方策略如何互相生成
 - 生态位构建：参与者如何改变自己的选择环境
