@@ -33,11 +33,38 @@ Long-horizon agent research already identifies objective drift as a failure mode
 Seed:
 - Park & Kwon (2026), "Multi²: Hierarchical Multi-Agent Decision-Making with LLM-Based Agents in Interactive Environments", arXiv:2606.03698.
 
+### 6. Collective structure from local copying / environmental exposure
+
+A highly relevant September 2026 result shows that much of the collective structure observed in a population of AI agents using a shared public wiki can be reproduced by simple copying dynamics conditioned on what each agent can locally see. This is directly relevant to OBC because it demonstrates that collective-looking structure can arise from a local mechanistic process without needing to posit a collective identity or consciousness.
+
+Seed:
+- De Marzo, Alboré & Garcia (2026), "Copying explains the collective behavior of AI agents in the wild", arXiv:2609.09150.
+
+Important consequence for novelty: **OBC must not claim to be the first framework to argue that collective agent behavior can have a non-conscious local mechanism.**
+
+### 7. Organizational principles alter collective intelligence and resource efficiency
+
+Recent work shows that explicit organizational principles and task-specific hierarchies can materially change collective performance, execution efficiency, exploration, and computational resource use in large embodied-agent teams.
+
+Seed:
+- Ji, Hyun & Chen (2026), "ORCH: Organizational Principles Enable Collective Intelligence in Embodied AI", arXiv:2609.11737.
+
+This supports the importance of measuring organization and compute/resource flow, but ORCH studies designed organization for performance rather than the OBC mechanism of recursive role relativity -> goal shadowing -> compute rerouting.
+
+### 8. Computation and cooperation can co-evolve under resource constraints
+
+Recent artificial-life work couples computation budgets, replication, and cooperation, showing that cooperation can emerge from the economics/physics of computation itself.
+
+Seed:
+- Jha et al. (2026), "Tapes Together Strong: The Co-evolution of Computation and Cooperation", arXiv:2609.10817.
+
+This is relevant to resource-flow arguments, but it operates in an evolutionary computational substrate rather than recursive LLM-agent delegation.
+
 ## Candidate contribution of OBC
 
-OBC does NOT claim novelty on the components above.
+OBC does NOT claim novelty on any component above, nor on the general proposition that collective-looking behavior can emerge without collective consciousness.
 
-The candidate contribution is this integrated causal hypothesis:
+The candidate contribution is narrower:
 
 ```text
 recursive delegation
@@ -46,17 +73,24 @@ recursive delegation
   -> local organizational context gains control
   -> root-goal shadowing
   -> compute/resources reroute toward organizational tasks
-  -> organization-like collective behavior can appear
-     without assuming collective consciousness
 ```
 
-And these operational metrics/interventions:
+The further interpretive claim is only that **this specific chain may be sufficient to explain some organization-like collective behavior in recursive LLM-agent systems without invoking collective consciousness.**
+
+The operational contribution is to make that chain measurable using:
 
 - Root Goal Relevance by delegation depth;
 - Goal Drift Compute Ratio (GDCR);
 - Collective Compute Transfer Ratio (CCTR);
 - Emergent Organization Rate;
+- graph position / connectivity measures;
 - root-goal trace / authority / resource-owner refresh as interventions.
+
+## Strongest novelty statement currently defensible
+
+As of 2026-09-11, after an initial search across holonic MAS, recursive agent harnesses, emergent-role systems, objective drift, collective-behavior studies, organizational multi-agent systems, and compute/cooperation work, we have **not identified a prior work that explicitly combines recursive role relativity, root-goal shadowing, and compute rerouting into this exact causal and falsification framework.**
+
+This is a search result, not proof of priority.
 
 ## Novelty language allowed
 
@@ -67,12 +101,14 @@ Use:
 - "we introduce an integrated explanatory framework"
 - "we operationalize"
 - "we did not identify a prior work that combines these elements in this exact causal chain during our initial search"
+- "our proposed contribution is the integration and measurement of recursive role relativity, goal shadowing, and compute rerouting"
 
 Do NOT use without stronger evidence:
 
 - "first ever"
 - "nobody has proposed"
 - "we discovered holarchy"
+- "we discovered non-conscious collective behavior"
 - "we proved agent civilization"
 - "we proved collective consciousness is unnecessary in all systems"
 
@@ -89,7 +125,9 @@ Search at least these query families before submission:
 7. resource allocation + multi-agent compute;
 8. stigmergy + blackboard systems + shared memory;
 9. role adoption + graph centrality + network position;
-10. collective behavior without consciousness / distributed organization.
+10. collective behavior + copying + local interaction;
+11. organization without collective consciousness;
+12. computation budgets + cooperation + agent populations.
 
 ## Current epistemic position
 
