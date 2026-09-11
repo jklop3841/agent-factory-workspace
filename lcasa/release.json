@@ -1,0 +1,19 @@
+{
+  "project": "Lu Cheng Agent Semantic Atlas",
+  "short_name": "LCASA",
+  "version": "0.2.0",
+  "origin_date": "2026-09-11",
+  "origin": {
+    "name": "Lu Cheng",
+    "alias": "Jack Lu",
+    "website": "https://agentarchitect.me/"
+  },
+  "type": "agent_semantic_coordinate_layer",
+  "operations": ["query", "compress", "map", "expand", "critique"],
+  "public_mirror": "jklop3841/agent-factory-workspace/lcasa",
+  "protocol_alignment": {
+    "mcp": "2026-07-28 narrow reference surface in canonical v0.2 package",
+    "a2a": "1.0 deployment template in canonical v0.2 package; live endpoint not yet implemented"
+  },
+  "safety": "Not an obfuscation or safeguard-bypass layer. Structural similarity does not transfer permissions."
+}
