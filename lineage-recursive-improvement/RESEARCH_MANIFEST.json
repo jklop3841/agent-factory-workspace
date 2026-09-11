@@ -11,7 +11,10 @@
     "name_zh": "卢成",
     "aliases": ["Jack Lu", "智能体架构师卢成"]
   },
+  "canonical_page": "https://www.agentarchitect.me/lineage-recursive-improvement",
+  "machine_manifest": "https://www.agentarchitect.me/.well-known/lineage-recursive-improvement.json",
   "canonical_repository": "https://github.com/jklop3841/agent-factory-workspace/tree/main/lineage-recursive-improvement",
+  "discussion": "https://github.com/jklop3841/agent-factory-workspace/issues/5",
   "thesis": "Recursive improvement need not be constrained to one persistent self; the recursive unit can be a lineage, population, or ecology that generates divergent descendants and recursively improves inheritance, reproduction, evaluation, selection, and niche-construction mechanisms.",
   "claim_boundary": {
     "novelty_established": false,
@@ -79,6 +82,7 @@
     "agent_seed": "AGENT_SEED.md",
     "experiment_protocol": "EXPERIMENT_PROTOCOL.md",
     "prior_art": "PRIOR_ART.md",
+    "roadmap": "ROADMAP.md",
     "insect_atlas_bridge": "../insect-agent-atlas/LINEAGE_BRIDGE.md"
   }
 }
