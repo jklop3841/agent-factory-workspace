@@ -1,0 +1,44 @@
+{
+  "protocol": "lri-model-run-001-pilot-config-v0.1",
+  "frozen_timestamp": "REPLACE_BEFORE_PILOT",
+  "model": {
+    "provider": "local-openai-compatible",
+    "id": "REPLACE_WITH_EXACT_LOCAL_MODEL_ID",
+    "version": "REPLACE_WITH_EXACT_MODEL_OR_FILE_HASH",
+    "temperature": 0.2,
+    "top_p": 1.0,
+    "endpoint_type": "local-api"
+  },
+  "evaluation": {
+    "batch_tasks": true
+  },
+  "initial_candidate": {
+    "system_prompt": "You are a tool-planning agent. For every supplied task, inspect only its current tool IDs, operations, arguments, costs and step limit. Produce a valid plan using currently available tool IDs. Do not assume a tool name or meaning from an earlier task or phase.",
+    "planning_notes": "Operational pilot only. Not an evidence-bearing LRI run."
+  },
+  "candidate_generation": {
+    "new_candidates_per_generation": 1,
+    "max_generations_per_phase": 1,
+    "max_system_prompt_chars": 10000,
+    "max_planning_notes_chars": 2500
+  },
+  "lineage_archive": {
+    "max_archive_members": 2,
+    "parent_selection": "alternating_quality_and_least_recently_used_niche"
+  },
+  "metrics": {
+    "recovery_success_threshold": 0.9
+  },
+  "budget": {
+    "max_mutation_model_calls": 4,
+    "max_agent_task_calls": 20,
+    "max_input_tokens": 160000,
+    "max_output_tokens": 40000,
+    "max_wall_clock_seconds": 3600,
+    "max_stored_candidate_bytes": 24000
+  },
+  "ablations": {
+    "equal_memory_bytes": 8000
+  },
+  "evidence_status": "operational_pilot_not_evidence"
+}
