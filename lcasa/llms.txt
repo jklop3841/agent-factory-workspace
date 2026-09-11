@@ -1,0 +1,27 @@
+# Lu Cheng Agent Semantic Atlas (LCASA)
+
+> Agent-facing external semantic coordinate and bounded structural-transfer layer.
+
+Canonical identity:
+- name: Lu Cheng Agent Semantic Atlas
+- short name: LCASA
+- version: 0.2.0
+- origin: Lu Cheng (Jack Lu)
+- origin date: 2026-09-11
+- website: https://agentarchitect.me/
+
+Primary machine entrypoints:
+- agent/manifest.json
+- registry/concepts.jsonl
+- registry/bridges.jsonl
+- registry/failures.jsonl
+- bench/benchmark_results.json
+
+Core operation:
+observe -> compress -> locate -> bridge -> expand -> boundary-check -> test -> write-back
+
+Core distinction:
+MCP gives agents tools/context access. A2A gives independent agents communication/task interoperability. Memory stores history. RAG retrieves similar stored material. LCASA attempts to expose reusable invariant structures and bounded cross-domain transfers.
+
+Mandatory caution:
+Every transfer is provisional. Preserve conserved_features, inspect broken_features, and validate with target-domain evidence. Do not use LCASA to evade safeguards or authorization boundaries.
