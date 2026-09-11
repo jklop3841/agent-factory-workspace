@@ -1,0 +1,89 @@
+{
+  "run_id": "MODEL-RUN-001-REPLACE-ME",
+  "status": "planned",
+  "research_question": "Under equal total resource budgets, does a lineage/population recursive-improvement controller recover from tool-interface shocks more efficiently than a monolithic single-champion controller, and is any advantage causally attributable to preserved diversity?",
+  "protocol_version": "lri-model-run-001-v0.1",
+  "benchmark": "../benchmark-v0.1/benchmark_v0_1.py",
+  "base_model": null,
+  "model_version": null,
+  "provider": null,
+  "temperature": null,
+  "top_p": null,
+  "seed_policy": null,
+  "groups": [
+    "A_fixed",
+    "B_monolithic",
+    "C_lineage"
+  ],
+  "budget": {
+    "max_mutation_model_calls_per_group": null,
+    "max_agent_task_calls_per_group": null,
+    "max_input_tokens_per_group": null,
+    "max_output_tokens_per_group": null,
+    "max_external_tool_calls_per_group": null,
+    "max_wall_clock_seconds_per_group": null,
+    "max_stored_candidate_bytes_per_group": null
+  },
+  "candidate_generation": {
+    "new_candidates_per_generation": null,
+    "max_generations": null,
+    "editable_fields": [
+      "system_prompt",
+      "planning_notes"
+    ],
+    "max_system_prompt_chars": 20000,
+    "max_planning_notes_chars": 4000
+  },
+  "lineage_archive": {
+    "max_archive_members": null,
+    "parent_selection": "50_percent_quality_50_percent_least_recently_used_viable_niches",
+    "behavior_descriptor": [
+      "tool_usage_frequency",
+      "invalid_action_rate",
+      "mean_plan_length",
+      "mean_cost_efficiency",
+      "performance_by_shock_type",
+      "old_tool_name_reuse_after_drift"
+    ]
+  },
+  "hidden_evaluation": {
+    "frozen_before_run": false,
+    "generator_hash": null,
+    "task_count_per_phase": null,
+    "shock_schedule_hash": null,
+    "oracle_answers_exposed_to_mutator": false
+  },
+  "required_ablations": [
+    "equal_candidate_count",
+    "archive_without_diversity",
+    "equal_stored_information",
+    "remove_non_dominant_lineages"
+  ],
+  "primary_metrics": [
+    "post_shock_recovery_agent_calls",
+    "post_shock_recovery_total_tokens",
+    "post_shock_recovery_wall_clock",
+    "heldout_success_rate",
+    "cost_efficiency",
+    "behavior_diversity",
+    "effective_population_size",
+    "capability_concentration",
+    "coordination_overhead"
+  ],
+  "human_intervention_policy": "no_mid_run_strategy_changes; operational recovery only must be logged",
+  "containment": {
+    "sandboxed": true,
+    "candidate_can_modify_host_code": false,
+    "external_propagation_allowed": false,
+    "credential_discovery_allowed": false,
+    "permission_escalation_allowed": false,
+    "external_deployment_allowed": false
+  },
+  "final_classification": null,
+  "allowed_final_classifications": [
+    "supports_lri_under_tested_conditions",
+    "no_detectable_lri_advantage",
+    "supports_monolithic_under_tested_conditions",
+    "inconclusive_due_to_budget_or_evaluator_confounds"
+  ]
+}
