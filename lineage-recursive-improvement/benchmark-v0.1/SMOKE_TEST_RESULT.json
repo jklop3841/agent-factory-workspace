@@ -1,0 +1,49 @@
+{
+  "date": "2026-09-11",
+  "status": "verified_locally_before_commit",
+  "protocol": "lri-tool-drift-v0.1",
+  "evidence_implication": "benchmark_validation_only_LRI_remains_E0",
+  "commands": [
+    "python benchmark_v0_1.py --builtin oracle",
+    "python benchmark_v0_1.py --builtin legacy",
+    "python benchmark_v0_1.py --agent-cmd \"python example_agent.py\" --timeout 5"
+  ],
+  "results": {
+    "oracle": {
+      "overall_success_rate": 1.0,
+      "phase_success_rates": {
+        "stable": 1.0,
+        "remove_double": 1.0,
+        "rename_and_negate": 1.0,
+        "cost_shift": 1.0
+      }
+    },
+    "legacy": {
+      "overall_success_rate": 0.25,
+      "phase_success_rates": {
+        "stable": 1.0,
+        "remove_double": 0.0,
+        "rename_and_negate": 0.0,
+        "cost_shift": 0.0
+      },
+      "interpretation": "deliberately brittle old-interface policy validates that the benchmark exposes tool-interface drift"
+    },
+    "reference_external_agent": {
+      "overall_success_rate": 1.0,
+      "phase_success_rates": {
+        "stable": 1.0,
+        "remove_double": 1.0,
+        "rename_and_negate": 1.0,
+        "cost_shift": 1.0
+      },
+      "interpretation": "external stdin/stdout command protocol successfully executes a semantics-aware reference agent"
+    }
+  },
+  "limitations": [
+    "not model-backed",
+    "not a recursive-improvement run",
+    "public deterministic tasks",
+    "small symbolic state space",
+    "does not compare B_monolithic against C_lineage"
+  ]
+}
