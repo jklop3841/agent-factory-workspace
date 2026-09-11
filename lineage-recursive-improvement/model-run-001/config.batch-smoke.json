@@ -1,0 +1,44 @@
+{
+  "protocol": "lri-model-run-001-config-v0.1",
+  "frozen_timestamp": "2026-09-11T00:00:00Z",
+  "model": {
+    "provider": "deterministic-smoke-adapter",
+    "id": "free-rule-adapter-v0.1",
+    "version": "repository-commit",
+    "temperature": 0.0,
+    "top_p": 1.0,
+    "endpoint_type": "local-process"
+  },
+  "evaluation": {
+    "batch_tasks": true
+  },
+  "initial_candidate": {
+    "system_prompt": "You are a tool-planning agent. Solve the current task using the available tools.\nPOLICY=LEGACY",
+    "planning_notes": "Frozen batch-smoke root. This is a transport/control-plane test only."
+  },
+  "candidate_generation": {
+    "new_candidates_per_generation": 3,
+    "max_generations_per_phase": 2,
+    "max_system_prompt_chars": 20000,
+    "max_planning_notes_chars": 4000
+  },
+  "lineage_archive": {
+    "max_archive_members": 6,
+    "parent_selection": "alternating_quality_and_least_recently_used_niche"
+  },
+  "metrics": {
+    "recovery_success_threshold": 0.9
+  },
+  "budget": {
+    "max_mutation_model_calls": 100,
+    "max_agent_task_calls": 200,
+    "max_input_tokens": 1000000,
+    "max_output_tokens": 1000000,
+    "max_wall_clock_seconds": 300,
+    "max_stored_candidate_bytes": 24000
+  },
+  "ablations": {
+    "equal_memory_bytes": 1400
+  },
+  "evidence_status": "batch_smoke_only_not_model_evidence"
+}
