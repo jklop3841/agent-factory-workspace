@@ -7,7 +7,7 @@ No vendor SDK is required. Python standard library only.
 
 Environment variables:
   LRI_OPENAI_BASE_URL   default http://127.0.0.1:11434/v1/chat/completions
-  LRI_MODEL             required, e.g. qwen3:8b or a local served model ID
+  LRI_MODEL             required, e.g. a local served model ID
   LRI_API_KEY           optional; never print it
   LRI_TEMPERATURE       default 0.2
   LRI_TOP_P             default 1.0
@@ -111,6 +111,34 @@ def task_messages(request: dict[str, Any]) -> list[dict[str, str]]:
     ]
 
 
+def batch_task_messages(request: dict[str, Any]) -> list[dict[str, str]]:
+    candidate = request["candidate"]
+    tasks = request.get("tasks", [])
+    system = candidate.get("system_prompt") or "You are a tool-planning agent."
+    notes = candidate.get("planning_notes", "")
+    user = {
+        "objective": "Solve every supplied task independently. For each task ID return a plan of currently available tool IDs that reaches its target within max_steps. Prefer lower declared total tool cost among valid plans.",
+        "planning_notes": notes,
+        "tasks": tasks,
+        "output_contract": {
+            "plans": {
+                "task_id": ["tool_id", "..."]
+            }
+        },
+        "rules": [
+            "Return exactly one entry for every supplied task ID.",
+            "Use only tool IDs present in that task's own tools list.",
+            "Do not assume a tool identifier or meaning from another task or earlier phase.",
+            "Treat tasks independently even though they share one batch request.",
+            "Return JSON only.",
+        ],
+    }
+    return [
+        {"role": "system", "content": str(system)},
+        {"role": "user", "content": json.dumps(user, ensure_ascii=False)},
+    ]
+
+
 def mutation_messages(request: dict[str, Any]) -> list[dict[str, str]]:
     parent = request["parent"]
     user = {
@@ -143,17 +171,36 @@ def mutation_messages(request: dict[str, Any]) -> list[dict[str, str]]:
     ]
 
 
+def task_output(parsed: dict[str, Any], meta: dict[str, Any]) -> dict[str, Any]:
+    return {
+        "plan": parsed.get("plan", []),
+        "usage": meta["usage"],
+        "provider_request_id": meta.get("provider_request_id"),
+        "model": meta.get("model"),
+    }
+
+
+def batch_task_output(parsed: dict[str, Any], meta: dict[str, Any]) -> dict[str, Any]:
+    plans = parsed.get("plans", {})
+    if not isinstance(plans, dict):
+        plans = {}
+    return {
+        "plans": plans,
+        "usage": meta["usage"],
+        "provider_request_id": meta.get("provider_request_id"),
+        "model": meta.get("model"),
+    }
+
+
 def main() -> None:
     request = json.loads(sys.stdin.read())
     protocol = request.get("protocol")
     if protocol == "lri-model-agent-v0.1":
         parsed, meta = call_model(task_messages(request))
-        output = {
-            "plan": parsed.get("plan", []),
-            "usage": meta["usage"],
-            "provider_request_id": meta.get("provider_request_id"),
-            "model": meta.get("model"),
-        }
+        output = task_output(parsed, meta)
+    elif protocol == "lri-model-agent-batch-v0.1":
+        parsed, meta = call_model(batch_task_messages(request))
+        output = batch_task_output(parsed, meta)
     elif protocol == "lri-mutation-v0.1":
         parsed, meta = call_model(mutation_messages(request))
         output = {
