@@ -1,0 +1,110 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://www.agentarchitect.me/schemas/lri-replication-result-v0.1.json",
+  "title": "LRI Replication Result v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "result_id",
+    "date",
+    "repository_commit",
+    "experiment",
+    "model",
+    "task_freeze",
+    "repetitions",
+    "classification",
+    "raw_results_location",
+    "limitations"
+  ],
+  "properties": {
+    "result_id": {"type": "string", "minLength": 1},
+    "date": {"type": "string", "format": "date"},
+    "repository_commit": {"type": "string", "minLength": 7},
+    "experiment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "protocol_version", "groups", "ablations"],
+      "properties": {
+        "name": {"type": "string"},
+        "protocol_version": {"type": "string"},
+        "groups": {
+          "type": "array",
+          "items": {"type": "string"},
+          "minItems": 2,
+          "uniqueItems": true
+        },
+        "ablations": {
+          "type": "array",
+          "items": {"type": "string"},
+          "uniqueItems": true
+        }
+      }
+    },
+    "model": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["provider_or_runtime", "model_id"],
+      "properties": {
+        "provider_or_runtime": {"type": "string"},
+        "model_id": {"type": "string"},
+        "version_or_hash": {"type": ["string", "null"]},
+        "temperature": {"type": ["number", "null"]},
+        "top_p": {"type": ["number", "null"]},
+        "seed_policy": {"type": ["string", "null"]}
+      }
+    },
+    "task_freeze": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["commitment_hash", "revealed"],
+      "properties": {
+        "commitment_hash": {"type": "string", "minLength": 16},
+        "revealed": {"type": "boolean"},
+        "revealed_seed_or_bundle": {"type": ["string", "null"]}
+      }
+    },
+    "repetitions": {"type": "integer", "minimum": 1},
+    "budgets": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "fairness_checks": {
+      "type": "object",
+      "additionalProperties": {"type": ["boolean", "string", "number", "null"]}
+    },
+    "primary_result": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "mechanism_controls": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "classification": {
+      "enum": [
+        "supports_lri_under_tested_conditions",
+        "no_detectable_lri_advantage",
+        "supports_monolithic_under_tested_conditions",
+        "inconclusive_due_to_budget_or_evaluator_confounds"
+      ]
+    },
+    "raw_results_location": {"type": "string", "minLength": 1},
+    "failed_runs_retained": {"type": ["boolean", "null"]},
+    "human_interventions": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "limitations": {
+      "type": "array",
+      "items": {"type": "string"},
+      "minItems": 1
+    },
+    "alternative_explanations": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "author_or_agent": {
+      "type": ["string", "null"]
+    }
+  }
+}
