@@ -33,6 +33,7 @@ def write_json(path: Path, value: Any) -> None:
 
 def invoke(
     root: Path,
+    controller_script: str,
     group: str,
     config: Path,
     training: Path,
@@ -44,9 +45,12 @@ def invoke(
     prune_before_phase: str | None = None,
     timeout: float = 60.0,
 ) -> Path:
+    controller_path = Path(controller_script)
+    if not controller_path.is_absolute():
+        controller_path = root / controller_path
     cmd = [
         sys.executable,
-        str(root / "controller.py"),
+        str(controller_path),
         "--group",
         group,
         "--config",
@@ -90,6 +94,7 @@ def main() -> None:
     parser.add_argument("--freeze-dir", type=Path, required=True)
     parser.add_argument("--task-adapter", required=True)
     parser.add_argument("--mutation-adapter", required=True)
+    parser.add_argument("--controller-script", default="controller.py")
     parser.add_argument("--out-dir", type=Path, default=Path("results/matrix"))
     parser.add_argument("--timeout", type=float, default=60.0)
     args = parser.parse_args()
@@ -105,36 +110,50 @@ def main() -> None:
     phases = [phase["id"] for phase in training_data["phases"]]
     prune_phase = phases[2] if len(phases) >= 3 else phases[-1]
 
+    def call(
+        group: str,
+        directory: str,
+        archive_policy: str = "diversity",
+        prune_before_phase: str | None = None,
+        config: Path | None = None,
+    ) -> Path:
+        return invoke(
+            root,
+            args.controller_script,
+            group,
+            config or args.config,
+            training,
+            heldout,
+            args.task_adapter,
+            args.mutation_adapter,
+            args.out_dir / directory,
+            archive_policy=archive_policy,
+            prune_before_phase=prune_before_phase,
+            timeout=args.timeout,
+        )
+
     runs: dict[str, Path] = {}
-    runs["A_fixed"] = invoke(
-        root, "A_fixed", args.config, training, heldout, args.task_adapter, args.mutation_adapter,
-        args.out_dir / "A_fixed", timeout=args.timeout
-    )
-    runs["B_monolithic"] = invoke(
-        root, "B_monolithic", args.config, training, heldout, args.task_adapter, args.mutation_adapter,
-        args.out_dir / "B_monolithic", timeout=args.timeout
-    )
-    runs["C_lineage_diversity"] = invoke(
-        root, "C_lineage", args.config, training, heldout, args.task_adapter, args.mutation_adapter,
-        args.out_dir / "C_lineage_diversity", archive_policy="diversity", timeout=args.timeout
-    )
-    runs["C_lineage_score_only"] = invoke(
-        root, "C_lineage", args.config, training, heldout, args.task_adapter, args.mutation_adapter,
-        args.out_dir / "C_lineage_score_only", archive_policy="score_only", timeout=args.timeout
-    )
+    runs["A_fixed"] = call("A_fixed", "A_fixed")
+    runs["B_monolithic"] = call("B_monolithic", "B_monolithic")
+    runs["C_lineage_diversity"] = call("C_lineage", "C_lineage_diversity", archive_policy="diversity")
+    runs["C_lineage_score_only"] = call("C_lineage", "C_lineage_score_only", archive_policy="score_only")
 
     equal_memory_config = json.loads(json.dumps(config_data))
     equal_memory_bytes = int(config_data.get("ablations", {}).get("equal_memory_bytes", 16000))
     equal_memory_config["budget"]["max_stored_candidate_bytes"] = equal_memory_bytes
     equal_memory_path = args.out_dir / "config.equal-memory.frozen.json"
     write_json(equal_memory_path, equal_memory_config)
-    runs["C_lineage_equal_memory"] = invoke(
-        root, "C_lineage", equal_memory_path, training, heldout, args.task_adapter, args.mutation_adapter,
-        args.out_dir / "C_lineage_equal_memory", archive_policy="diversity", timeout=args.timeout
+    runs["C_lineage_equal_memory"] = call(
+        "C_lineage",
+        "C_lineage_equal_memory",
+        archive_policy="diversity",
+        config=equal_memory_path,
     )
-    runs["C_lineage_pruned"] = invoke(
-        root, "C_lineage", args.config, training, heldout, args.task_adapter, args.mutation_adapter,
-        args.out_dir / "C_lineage_pruned", archive_policy="diversity", prune_before_phase=prune_phase, timeout=args.timeout
+    runs["C_lineage_pruned"] = call(
+        "C_lineage",
+        "C_lineage_pruned",
+        archive_policy="diversity",
+        prune_before_phase=prune_phase,
     )
 
     data = {name: load_json(path) for name, path in runs.items()}
@@ -152,6 +171,8 @@ def main() -> None:
     summary = {
         "protocol": "lri-model-run-matrix-v0.1",
         "evidence_status": config_data.get("evidence_status"),
+        "controller_script": args.controller_script,
+        "evaluation_batch_tasks": bool(config_data.get("evaluation", {}).get("batch_tasks", False)),
         "prune_before_phase": prune_phase,
         "fairness_checks": fairness,
         "runs": {
