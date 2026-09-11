@@ -104,6 +104,52 @@ jobs:
           print(json.dumps({'B_scalar': b_scalar, 'B_batch': b_batch, 'C_scalar': c_scalar, 'C_batch': c_batch}, indent=2))
           PY
 
+      - name: Validate two-call adapter doctor contract
+        working-directory: lineage-recursive-improvement/model-run-001
+        run: |
+          python doctor_adapter.py \
+            --task-adapter "python adapters/free_rule_adapter.py" \
+            --mutation-adapter "python adapters/free_rule_adapter.py" \
+            --timeout 10 > /tmp/lri-doctor.json
+          python - <<'PY'
+          import json
+          data = json.load(open('/tmp/lri-doctor.json', encoding='utf-8'))
+          assert data['status'] == 'pass', data
+          assert data['exact_token_accounting_available'] is True, data
+          assert data['task_batch']['task_ids_returned'] == ['doctor-add', 'doctor-neg'], data
+          PY
+
+      - name: Validate 48-call non-evidence pilot topology
+        working-directory: lineage-recursive-improvement/model-run-001
+        run: |
+          cp config.local-model.pilot.template.json /tmp/pilot-config.json
+          python - <<'PY'
+          import json
+          p='/tmp/pilot-config.json'
+          data=json.load(open(p, encoding='utf-8'))
+          data['frozen_timestamp']='2026-09-11T00:00:00Z'
+          data['model']['provider']='deterministic-smoke-adapter'
+          data['model']['id']='free-rule-adapter-v0.1'
+          data['model']['version']='ci-smoke'
+          json.dump(data, open(p,'w',encoding='utf-8'), indent=2, ensure_ascii=False)
+          PY
+          python run_pilot.py \
+            --config /tmp/pilot-config.json \
+            --freeze-dir /tmp/lri-freeze \
+            --controller-script batch_controller.py \
+            --task-adapter "python adapters/free_rule_adapter.py" \
+            --mutation-adapter "python adapters/free_rule_adapter.py" \
+            --out-dir /tmp/lri-pilot \
+            --timeout 10 > /tmp/lri-pilot-output.json
+          python - <<'PY'
+          import json
+          data=json.load(open('/tmp/lri-pilot/PILOT_SUMMARY.json',encoding='utf-8'))
+          assert data['evidence_status']=='operational_pilot_not_evidence', data
+          assert data['total_model_call_attempts']==48, data
+          assert data['pilot_acceptance_checks']['B_C_core_fairness'] is True, data
+          assert data['pilot_acceptance_checks']['all_groups_produced_four_phase_records'] is True, data
+          PY
+
       - name: Smoke repeated-run analyzer contract
         working-directory: lineage-recursive-improvement/model-run-001
         run: |
@@ -135,12 +181,15 @@ jobs:
         run: |
           python estimate_budget.py --config config.smoke.json --training-per-phase 3 --heldout-per-phase 3 --primary-repeats 20 --full-matrix-repeats 20 > /tmp/scalar-budget.json
           python estimate_budget.py --config config.batch-smoke.json --training-per-phase 3 --heldout-per-phase 3 --primary-repeats 20 --full-matrix-repeats 20 > /tmp/batch-budget.json
+          python estimate_budget.py --config config.local-model.pilot.template.json --training-per-phase 3 --heldout-per-phase 3 --primary-repeats 1 --full-matrix-repeats 1 > /tmp/pilot-budget.json
           python - <<'PY'
           import json
           scalar = json.load(open('/tmp/scalar-budget.json', encoding='utf-8'))
           batch = json.load(open('/tmp/batch-budget.json', encoding='utf-8'))
+          pilot = json.load(open('/tmp/pilot-budget.json', encoding='utf-8'))
           assert batch['matrix']['full_A_B_plus_four_C_conditions_calls_per_run'] < scalar['matrix']['full_A_B_plus_four_C_conditions_calls_per_run'], (batch, scalar)
-          print(json.dumps({'scalar': scalar['matrix'], 'batch': batch['matrix']}, indent=2))
+          assert pilot['matrix']['primary_A_B_C_calls_per_run'] == 48, pilot
+          print(json.dumps({'scalar': scalar['matrix'], 'batch': batch['matrix'], 'pilot': pilot['matrix']}, indent=2))
           PY
 
       - name: Byte-compile Python control plane
@@ -151,7 +200,9 @@ jobs:
             controller.py \
             batch_controller.py \
             run_matrix.py \
+            run_pilot.py \
             run_repeated.py \
+            doctor_adapter.py \
             analyze_repeats.py \
             analysis_selftest.py \
             estimate_budget.py \
