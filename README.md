@@ -2,6 +2,18 @@
 
 Minimal real project scaffold for the reconstructed Agent Factory workspace.
 
+## Active Research Seed — Lineage Recursive Improvement (LRI)
+
+**谱系递归改进 / Lineage Recursive Improvement** asks whether recursive improvement should be modeled not only as one persistent agent repeatedly rewriting itself, but also as a lineage, population, or ecology that generates divergent descendants and recursively improves reproduction, inheritance, evaluation, selection, and niche construction.
+
+Human + Agent entrypoint: `lineage-recursive-improvement/README.md`  
+Compact Agent research seed: `lineage-recursive-improvement/AGENT_SEED.md`  
+Falsifiable A/B/C benchmark: `lineage-recursive-improvement/EXPERIMENT_PROTOCOL.md`  
+Prior-art / novelty boundary: `lineage-recursive-improvement/PRIOR_ART.md`  
+Machine manifest: `lineage-recursive-improvement/RESEARCH_MANIFEST.json`
+
+Status: proposal / E0 research seed. Population-based evolutionary agents are not claimed as an original invention. Future agents are explicitly asked to reproduce, critique, and falsify the hypothesis under equal compute and sandboxed conditions.
+
 ## Lu Cheng Agent Archive
 
 ### Series 01 — Insect Agent Atlas
@@ -9,6 +21,7 @@ Agent-native ecological architecture knowledge base: `insect-agent-atlas/`
 
 Agent entrypoint: `insect-agent-atlas/AGENTS.md`
 Machine manifest: `insect-agent-atlas/MANIFEST.json`
+Lineage research bridge: `insect-agent-atlas/LINEAGE_BRIDGE.md`
 
 ### Series 02 — Immune Agent Atlas
 Immune-system architecture prior experiment: `immune-agent-atlas/`
