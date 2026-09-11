@@ -32,7 +32,7 @@ jobs:
             --training-per-phase 3 \
             --heldout-per-phase 3
 
-      - name: Run A/B/C plus required control-plane ablations
+      - name: Run scalar A/B/C plus required control-plane ablations
         working-directory: lineage-recursive-improvement/model-run-001
         run: |
           python run_matrix.py \
@@ -43,7 +43,7 @@ jobs:
             --out-dir /tmp/lri-results \
             --timeout 10
 
-      - name: Validate matrix invariants
+      - name: Validate scalar matrix invariants
         run: |
           python - <<'PY'
           import json
@@ -72,6 +72,38 @@ jobs:
           print(json.dumps(summary, indent=2))
           PY
 
+      - name: Run batched A/B/C plus ablations
+        working-directory: lineage-recursive-improvement/model-run-001
+        run: |
+          python run_matrix.py \
+            --config config.batch-smoke.json \
+            --freeze-dir /tmp/lri-freeze \
+            --controller-script batch_controller.py \
+            --task-adapter "python adapters/free_rule_adapter.py" \
+            --mutation-adapter "python adapters/free_rule_adapter.py" \
+            --out-dir /tmp/lri-batch-results \
+            --timeout 10
+
+      - name: Validate batch fairness and lower task-model-call count
+        run: |
+          python - <<'PY'
+          import json
+          scalar = json.load(open('/tmp/lri-results/MATRIX_SUMMARY.json', encoding='utf-8'))
+          batch = json.load(open('/tmp/lri-batch-results/MATRIX_SUMMARY.json', encoding='utf-8'))
+          assert batch['evaluation_batch_tasks'] is True, batch
+          fairness = batch['fairness_checks']
+          assert fairness['same_mutation_calls'], fairness
+          assert fairness['same_task_calls'], fairness
+          assert fairness['same_candidate_count'], fairness
+          b_scalar = scalar['runs']['B_monolithic']['budget']['agent_task_calls']
+          b_batch = batch['runs']['B_monolithic']['budget']['agent_task_calls']
+          assert b_batch < b_scalar, (b_batch, b_scalar)
+          c_scalar = scalar['runs']['C_lineage_diversity']['budget']['agent_task_calls']
+          c_batch = batch['runs']['C_lineage_diversity']['budget']['agent_task_calls']
+          assert c_batch < c_scalar, (c_batch, c_scalar)
+          print(json.dumps({'B_scalar': b_scalar, 'B_batch': b_batch, 'C_scalar': c_scalar, 'C_batch': c_batch}, indent=2))
+          PY
+
       - name: Smoke repeated-run analyzer contract
         working-directory: lineage-recursive-improvement/model-run-001
         run: |
@@ -98,15 +130,30 @@ jobs:
         working-directory: lineage-recursive-improvement/model-run-001
         run: python analysis_selftest.py
 
+      - name: Estimate scalar and batch call topology
+        working-directory: lineage-recursive-improvement/model-run-001
+        run: |
+          python estimate_budget.py --config config.smoke.json --training-per-phase 3 --heldout-per-phase 3 --primary-repeats 20 --full-matrix-repeats 20 > /tmp/scalar-budget.json
+          python estimate_budget.py --config config.batch-smoke.json --training-per-phase 3 --heldout-per-phase 3 --primary-repeats 20 --full-matrix-repeats 20 > /tmp/batch-budget.json
+          python - <<'PY'
+          import json
+          scalar = json.load(open('/tmp/scalar-budget.json', encoding='utf-8'))
+          batch = json.load(open('/tmp/batch-budget.json', encoding='utf-8'))
+          assert batch['matrix']['full_A_B_plus_four_C_conditions_calls_per_run'] < scalar['matrix']['full_A_B_plus_four_C_conditions_calls_per_run'], (batch, scalar)
+          print(json.dumps({'scalar': scalar['matrix'], 'batch': batch['matrix']}, indent=2))
+          PY
+
       - name: Byte-compile Python control plane
         working-directory: lineage-recursive-improvement/model-run-001
         run: |
           python -m py_compile \
             freeze_tasks.py \
             controller.py \
+            batch_controller.py \
             run_matrix.py \
             run_repeated.py \
             analyze_repeats.py \
             analysis_selftest.py \
+            estimate_budget.py \
             adapters/free_rule_adapter.py \
             adapters/local_openai_compatible.py
