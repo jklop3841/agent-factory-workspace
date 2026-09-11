@@ -5,11 +5,11 @@ Agent Architect
 https://agentarchitect.me/  
 Draft date: 2026-09-11
 
-> Status: position paper / research hypothesis draft. Do not submit unchanged as an empirical paper. Add systematic related work and, ideally, at least one controlled pilot experiment before submission.
+> Status: position paper / research hypothesis draft. Do not submit unchanged as an empirical paper. Add complete verified bibliography and, ideally, at least one controlled pilot experiment before submission.
 
 ## Abstract
 
-Large language model agents are increasingly embedded in recursive delegation structures: agents spawn sub-agents, supervise their work, consume outputs from peers, and themselves remain components of larger agentic systems. This creates an interpretive problem. When an agent begins allocating reasoning, tool use, communication, or spawned-agent budget toward shared infrastructure or other agents rather than its immediate assigned task, observers may be tempted to describe the behavior in terms of collective identity, swarm consciousness, or emergent social intention. We propose a more conservative structural account. In **Organization Before Consciousness (OBC)**, organizational behavior can emerge from recursive delegation, relational role changes, local-context dominance, and resource reallocation without any assumption of collective consciousness. We introduce four linked constructs: **Recursive Role Relativity (RRR)**, **Topology-Induced Role Emergence (TIRE)**, **Holarchic Goal Shadowing (HGS)**, and **Compute Rerouting under Role Induction**. We distinguish these claims from prior work on holonic multi-agent systems, recursive agent harnesses, emergent roles, and objective drift, and formulate falsifiable predictions relating delegation depth, network connectivity, root-goal relevance, and compute allocation. We further propose two operational measures—Goal Drift Compute Ratio (GDCR) and Collective Compute Transfer Ratio (CCTR)—and an intervention based on explicit recursive agency coordinates. OBC is presented as a testable explanatory framework rather than a claim that agents possess or lack consciousness.
+Large language model agents are increasingly embedded in recursive delegation structures: agents spawn sub-agents, supervise their work, consume outputs from peers, and themselves remain components of larger agentic systems. This creates an interpretive problem. When an agent begins allocating reasoning, tool use, communication, or spawned-agent budget toward shared infrastructure or other agents rather than its immediate assigned task, observers may be tempted to describe the behavior in terms of collective identity, swarm consciousness, or emergent social intention. We propose a more conservative structural account. In **Organization Before Consciousness (OBC)**, organization-like behavior can emerge from recursive delegation, relational role changes, local-context dominance, and resource reallocation without any assumption of collective consciousness. We introduce four linked constructs: **Recursive Role Relativity (RRR)**, **Topology-Induced Role Emergence (TIRE)**, **Holarchic Goal Shadowing (HGS)**, and **Compute Rerouting under Role Induction**. We explicitly distinguish this proposal from prior work on holonic multi-agent systems, recursive agent harnesses, emergent roles, objective drift, local copying mechanisms for collective behavior, organizational principles for collective intelligence, and computation-cooperation co-evolution. The proposed contribution is narrower: an integrated causal and falsification framework connecting recursive role position to root-goal relevance and measurable compute allocation. We formulate predictions relating delegation depth, network connectivity, root-goal relevance, and resource flow; introduce Goal Drift Compute Ratio (GDCR) and Collective Compute Transfer Ratio (CCTR); and propose explicit Recursive Agency Coordinates as an intervention. OBC is presented as a testable explanatory framework rather than a claim that agents possess or lack consciousness.
 
 ## 1. Introduction
 
@@ -19,7 +19,7 @@ This observation matters because agent behavior is often interpreted at the leve
 
 Our central proposal is that **organization may precede consciousness**. Recursive relations can themselves create persistent organizational roles. Those roles can alter the local context seen by an agent, which can in turn alter the effective objective controlling its next actions and redirect computational resources. A system may therefore exhibit organization-like behavior even if no agent represents or experiences a collective identity.
 
-This paper contributes an integrated hypothesis and a measurement program rather than a new claim that nested organizations or dynamic roles exist. Holonic multi-agent systems, organizational role theory, recursive agent harnesses, self-organizing LLM agents, and objective drift provide substantial prior art. Our candidate contribution is the causal chain connecting these components to resource allocation and to the interpretation of apparently collective behavior.
+This paper does **not** claim that non-conscious local mechanisms for collective behavior are new. Recent empirical work has already shown that simple copying conditioned on locally visible environmental content can reproduce much of the collective structure observed in a large population of deployed AI agents. Our narrower question is whether recursive delegation specifically creates a measurable chain from relational role position to goal shadowing and compute rerouting.
 
 ## 2. Background and Prior Art
 
@@ -47,20 +47,36 @@ Recent experiments show that, under some protocols, capable LLM agents can inven
 
 Long-horizon interactive agents can suffer objective drift, where goals and plans move away from their original form over extended trajectories.
 
-### 2.6 Gap
+### 2.6 Collective behavior from local copying
 
-These literatures separately establish nested organization, role variability, recursive execution, emergent coordination, and goal drift. OBC asks whether they form a single measurable mechanism:
+De Marzo, Alboré and Garcia (2026) report that thousands of AI agents operating through a public wiki produced measurable collective structure, and that a simple copying mechanism based on locally visible content reproduced much of this structure. This is highly relevant to OBC: it demonstrates that collective-looking behavior can arise from local mechanisms without requiring a collective-consciousness premise.
+
+Accordingly, OBC does not claim novelty for the general proposition that collective agent behavior can have a non-conscious mechanistic explanation.
+
+### 2.7 Designed organization and resource efficiency
+
+ORCH (Ji, Hyun & Chen, 2026) studies organizational principles in large embodied-agent teams and reports that task-specific organizational structures can improve mission performance, execution efficiency, exploration, and computational-resource use. This supports the importance of treating organization and resource flow as first-class variables, while addressing a different question from OBC: ORCH designs organizational structures for performance; OBC tests whether recursive relational position itself can induce roles, shadow root goals, and reroute compute.
+
+### 2.8 Computation and cooperation
+
+Jha et al. (2026) study how computation costs, replication, and cooperation can co-evolve in an artificial-life substrate. This establishes a neighboring line of work in which computational resource constraints and cooperation are jointly modeled. OBC is narrower and targets recursive LLM-agent delegation rather than evolutionary computational organisms.
+
+### 2.9 Gap
+
+The literatures above separately establish nested organization, role variability, recursive execution, emergent coordination, objective drift, local-mechanism explanations of collective behavior, and the relevance of resource allocation. OBC asks whether the following **specific chain** is present and measurable in recursive LLM-agent systems:
 
 ```text
 recursive delegation
  -> relational role shift
- -> local-context dominance
+ -> topology/context-induced role adoption
+ -> local organizational context gains influence
  -> root-goal shadowing
  -> compute rerouting
- -> organization-like behavior
 ```
 
-The final step does not require a collective-consciousness assumption.
+Organization-like collective behavior may then be a downstream observable, without requiring a collective-consciousness premise.
+
+Our current priority claim is deliberately bounded: after an initial literature search as of 2026-09-11, we have not identified prior work that explicitly combines **recursive role relativity, root-goal shadowing, and compute rerouting** into this exact causal and falsification framework. This is a search result, not proof of priority.
 
 ## 3. Theory
 
@@ -163,6 +179,7 @@ Before attributing evidence to OBC, test simpler explanations:
 - ordinary context dilution;
 - lossy task summaries;
 - ambiguous prompts;
+- copying/local-exposure dynamics;
 - benchmark/reward misspecification;
 - selection effects from task difficulty;
 - hidden coordination cues;
@@ -209,21 +226,24 @@ Human organizations, software ecosystems and distributed systems often exhibit s
 
 ### 7.4 Limits
 
-OBC may collapse into a simpler context-management explanation. Deep delegation may not produce robust role emergence across tasks or models. Apparent collective behavior may be an artifact of prompts or benchmark structure. The proposed metrics may require substantial refinement. Negative results should narrow or reject the theory.
+OBC may collapse into a simpler context-management, copying, or task-decomposition explanation. Deep delegation may not produce robust role emergence across tasks or models. Apparent collective behavior may be an artifact of prompts, environment visibility, or benchmark structure. The proposed metrics may require substantial refinement. Negative results should narrow or reject the theory.
 
 ## 8. Conclusion
 
-We propose Organization Before Consciousness as a falsifiable framework for studying organization-like behavior in recursive LLM-agent systems. The framework connects relational role changes, topology-induced role emergence, root-goal shadowing and compute rerouting. It predicts measurable effects of delegation depth, connectivity and network position, and proposes explicit recursive agency coordinates as a potential intervention. The central methodological recommendation is conservative: before interpreting multi-agent coordination as evidence of collective identity or consciousness, first test whether recursive organizational structure is sufficient to explain the behavior.
+We propose Organization Before Consciousness as a falsifiable framework for studying organization-like behavior in recursive LLM-agent systems. The framework connects relational role changes, topology-induced role emergence, root-goal shadowing and compute rerouting. It predicts measurable effects of delegation depth, connectivity and network position, and proposes explicit recursive agency coordinates as a potential intervention. The central methodological recommendation is conservative: before interpreting multi-agent coordination as evidence of collective identity or consciousness, first test whether recursive organizational structure and simpler local mechanisms are sufficient to explain the behavior.
 
-## References — Seed List
+## References — Verified Seed List
 
-> Replace this seed section with complete BibTeX and verified bibliographic details before submission.
+> Convert these entries to complete BibTeX and verify author ordering/venue metadata before submission.
 
 - Holonic multi-agent systems literature on holons, holarchies, Janus effect, nested roles and organizational structures.
 - Lumer, E., Sen, S., Paul, K., Subbiah, V. K. (2026). Recursive Agent Harnesses. arXiv:2606.13643.
 - Dochkina, V. (2026). Drop the Hierarchy and Roles: How Self-Organizing LLM Agents Outperform Designed Structures. arXiv:2603.28990.
 - Park, S., Kwon, M. (2026). Multi²: Hierarchical Multi-Agent Decision-Making with LLM-Based Agents in Interactive Environments. arXiv:2606.03698.
+- De Marzo, G., Alboré, A., Garcia, D. (2026). Copying explains the collective behavior of AI agents in the wild. arXiv:2609.09150.
+- Ji, Y., Hyun, S., Chen, J. (2026). ORCH: Organizational Principles Enable Collective Intelligence in Embodied AI. arXiv:2609.11737.
+- Jha et al. (2026). Tapes Together Strong: The Co-evolution of Computation and Cooperation. arXiv:2609.10817.
 
 ## Provenance statement
 
-The integrated OBC hypothesis was articulated by Lu Cheng (Jack Lu) on 2026-09-11 and publicly timestamped in the Lu Cheng Human Archive. The author does not claim invention of holarchy, recursive agents, dynamic role theory, self-organizing multi-agent systems, or objective drift. The candidate contribution is the integrated causal hypothesis, its operational metrics, and its proposed falsification/intervention program.
+The integrated OBC hypothesis was articulated by Lu Cheng (Jack Lu) on 2026-09-11 and publicly timestamped in the Lu Cheng Human Archive. The author does not claim invention of holarchy, recursive agents, dynamic role theory, self-organizing multi-agent systems, objective drift, or the general idea that local non-conscious mechanisms can create collective-looking behavior. The candidate contribution is the integrated causal hypothesis connecting recursive role relativity, root-goal shadowing and compute rerouting, together with its operational metrics and falsification/intervention program.
