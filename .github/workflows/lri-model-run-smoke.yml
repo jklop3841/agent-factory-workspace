@@ -1,0 +1,83 @@
+name: LRI Model Run 001 control-plane smoke
+
+on:
+  push:
+    paths:
+      - "lineage-recursive-improvement/model-run-001/**"
+      - ".github/workflows/lri-model-run-smoke.yml"
+  pull_request:
+    paths:
+      - "lineage-recursive-improvement/model-run-001/**"
+      - ".github/workflows/lri-model-run-smoke.yml"
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Freeze deterministic CI task bundle
+        working-directory: lineage-recursive-improvement/model-run-001
+        run: |
+          python freeze_tasks.py \
+            --seed "PUBLIC-CI-SMOKE-SEED-NOT-EVIDENCE" \
+            --out /tmp/lri-freeze \
+            --training-per-phase 3 \
+            --heldout-per-phase 3
+
+      - name: Run A/B/C plus required control-plane ablations
+        working-directory: lineage-recursive-improvement/model-run-001
+        run: |
+          python run_matrix.py \
+            --config config.smoke.json \
+            --freeze-dir /tmp/lri-freeze \
+            --task-adapter "python adapters/free_rule_adapter.py" \
+            --mutation-adapter "python adapters/free_rule_adapter.py" \
+            --out-dir /tmp/lri-results \
+            --timeout 10
+
+      - name: Validate matrix invariants
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          summary = json.loads(Path('/tmp/lri-results/MATRIX_SUMMARY.json').read_text(encoding='utf-8'))
+          assert summary['evidence_status'] == 'smoke_only_not_model_evidence', summary
+          fairness = summary['fairness_checks']
+          assert fairness['same_mutation_calls'], fairness
+          assert fairness['same_task_calls'], fairness
+          assert fairness['same_candidate_count'], fairness
+          assert fairness['token_accounting_exact_b'], fairness
+          assert fairness['token_accounting_exact_c'], fairness
+          expected = {
+              'A_fixed',
+              'B_monolithic',
+              'C_lineage_diversity',
+              'C_lineage_score_only',
+              'C_lineage_equal_memory',
+              'C_lineage_pruned',
+          }
+          assert set(summary['runs']) == expected, summary['runs'].keys()
+          for name, run in summary['runs'].items():
+              assert len(run['recovery_generations']) == 4, (name, run)
+              assert run['budget']['agent_task_calls'] > 0, (name, run)
+          print(json.dumps(summary, indent=2))
+          PY
+
+      - name: Byte-compile Python control plane
+        working-directory: lineage-recursive-improvement/model-run-001
+        run: |
+          python -m py_compile \
+            freeze_tasks.py \
+            controller.py \
+            run_matrix.py \
+            adapters/free_rule_adapter.py \
+            adapters/local_openai_compatible.py
