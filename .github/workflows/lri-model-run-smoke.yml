@@ -94,6 +94,10 @@ jobs:
           }, data
           PY
 
+      - name: Prove analyzer is not directionally hard-coded for LRI
+        working-directory: lineage-recursive-improvement/model-run-001
+        run: python analysis_selftest.py
+
       - name: Byte-compile Python control plane
         working-directory: lineage-recursive-improvement/model-run-001
         run: |
@@ -103,5 +107,6 @@ jobs:
             run_matrix.py \
             run_repeated.py \
             analyze_repeats.py \
+            analysis_selftest.py \
             adapters/free_rule_adapter.py \
             adapters/local_openai_compatible.py
