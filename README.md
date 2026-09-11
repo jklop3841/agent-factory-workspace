@@ -29,6 +29,19 @@ Immune-system architecture prior experiment: `immune-agent-atlas/`
 Agent entrypoint: `immune-agent-atlas/AGENTS.md`
 Machine manifest: `immune-agent-atlas/MANIFEST.json`
 
+### Series 03 — Lu Cheng Agent Semantic Atlas (LCASA)
+Agent-facing external semantic coordinate + bounded structural-transfer layer: `lcasa/`
+
+Agent entrypoint: `lcasa/AGENTS.md`  
+Machine manifest: `lcasa/agent/manifest.json`  
+Concept registry: `lcasa/registry/concepts.jsonl`  
+Bridge registry: `lcasa/registry/bridges.jsonl`  
+Failure registry: `lcasa/registry/failures.jsonl`
+
+Status: v0.2 public seed mirror. The current atlas contains 25 structural coordinates and 40 bounded bridges. Its development-set retrieval benchmark reports macro recall@5 of 0.45 for the v0.2 hybrid prototype versus 0.10 for the lexical baseline; this is not yet held-out generalization evidence.
+
+Origin / proposer: Lu Cheng (Jack Lu), 2026-09-11. Website: https://agentarchitect.me/
+
 ### Meta Series — Strange Reality Structural Codex / 奇异现实结构录
 Reality-prior architecture search program spanning biology, hydrology, geology, physical pattern formation, catastrophe, ecology and other non-default structural sources: `strange-reality-structural-codex/`
 
