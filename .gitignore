@@ -12,3 +12,11 @@ __pycache__/
 *.pyo
 *.pyd
 *.log
+
+# LRI Model Run 001 generated / potentially hidden artifacts
+lineage-recursive-improvement/model-run-001/hidden/
+lineage-recursive-improvement/model-run-001/results/
+lineage-recursive-improvement/model-run-001/logs/
+lineage-recursive-improvement/model-run-001/candidates/
+lineage-recursive-improvement/model-run-001/RUN_MANIFEST.json
+lineage-recursive-improvement/model-run-001/config.local-model.json
