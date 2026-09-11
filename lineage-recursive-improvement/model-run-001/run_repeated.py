@@ -35,6 +35,7 @@ def main() -> None:
     parser.add_argument("--config", type=Path, required=True)
     parser.add_argument("--task-adapter", required=True)
     parser.add_argument("--mutation-adapter", required=True)
+    parser.add_argument("--controller-script", default="controller.py")
     parser.add_argument("--out-root", type=Path, default=Path("results/repeated"))
     parser.add_argument("--training-per-phase", type=int, default=8)
     parser.add_argument("--heldout-per-phase", type=int, default=12)
@@ -80,6 +81,8 @@ def main() -> None:
                 args.task_adapter,
                 "--mutation-adapter",
                 args.mutation_adapter,
+                "--controller-script",
+                args.controller_script,
                 "--out-dir",
                 str(matrix_dir.resolve()),
                 "--timeout",
@@ -106,6 +109,7 @@ def main() -> None:
         "master_seed_commitment_sha256": commitment,
         "master_seed_revealed": False,
         "config": str(args.config),
+        "controller_script": args.controller_script,
         "training_tasks_per_phase": args.training_per_phase,
         "heldout_tasks_per_phase": args.heldout_per_phase,
         "runs": index_rows,
