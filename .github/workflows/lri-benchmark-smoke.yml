@@ -1,0 +1,57 @@
+name: LRI benchmark smoke
+
+on:
+  push:
+    paths:
+      - "lineage-recursive-improvement/benchmark-v0.1/**"
+      - ".github/workflows/lri-benchmark-smoke.yml"
+  pull_request:
+    paths:
+      - "lineage-recursive-improvement/benchmark-v0.1/**"
+      - ".github/workflows/lri-benchmark-smoke.yml"
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Oracle baseline
+        working-directory: lineage-recursive-improvement/benchmark-v0.1
+        run: |
+          python benchmark_v0_1.py --builtin oracle --output oracle.json
+          python - <<'PY'
+          import json
+          data = json.load(open("oracle.json", encoding="utf-8"))
+          assert data["overall_success_rate"] == 1.0, data
+          PY
+
+      - name: Drift-sensitive legacy baseline
+        working-directory: lineage-recursive-improvement/benchmark-v0.1
+        run: |
+          python benchmark_v0_1.py --builtin legacy --output legacy.json
+          python - <<'PY'
+          import json
+          data = json.load(open("legacy.json", encoding="utf-8"))
+          assert data["phases"]["stable"]["success_rate"] == 1.0, data
+          assert data["phases"]["remove_double"]["success_rate"] == 0.0, data
+          assert data["phases"]["rename_and_negate"]["success_rate"] == 0.0, data
+          assert data["phases"]["cost_shift"]["success_rate"] == 0.0, data
+          PY
+
+      - name: External command protocol
+        working-directory: lineage-recursive-improvement/benchmark-v0.1
+        run: |
+          python benchmark_v0_1.py --agent-cmd "python example_agent.py" --timeout 5 --output external.json
+          python - <<'PY'
+          import json
+          data = json.load(open("external.json", encoding="utf-8"))
+          assert data["overall_success_rate"] == 1.0, data
+          PY
