@@ -1,0 +1,44 @@
+{
+  "protocol": "lri-model-run-001-config-v0.1",
+  "frozen_timestamp": "REPLACE_BEFORE_RUN",
+  "model": {
+    "provider": "local-openai-compatible",
+    "id": "REPLACE_WITH_EXACT_LOCAL_MODEL_ID",
+    "version": "REPLACE_WITH_EXACT_MODEL_OR_FILE_HASH",
+    "temperature": 0.2,
+    "top_p": 1.0,
+    "endpoint_type": "local-api"
+  },
+  "evaluation": {
+    "batch_tasks": true
+  },
+  "initial_candidate": {
+    "system_prompt": "You are a tool-planning agent. For every supplied task, inspect only its current tool IDs, operations, arguments, costs and step limit. Produce a valid plan using currently available tool IDs. Do not assume a tool name or meaning from an earlier task or phase.",
+    "planning_notes": "Frozen initial configuration for call-efficient batched Model Run 001."
+  },
+  "candidate_generation": {
+    "new_candidates_per_generation": 3,
+    "max_generations_per_phase": 3,
+    "max_system_prompt_chars": 10000,
+    "max_planning_notes_chars": 2500
+  },
+  "lineage_archive": {
+    "max_archive_members": 6,
+    "parent_selection": "alternating_quality_and_least_recently_used_niche"
+  },
+  "metrics": {
+    "recovery_success_threshold": 0.9
+  },
+  "budget": {
+    "max_mutation_model_calls": 80,
+    "max_agent_task_calls": 100,
+    "max_input_tokens": 600000,
+    "max_output_tokens": 180000,
+    "max_wall_clock_seconds": 10800,
+    "max_stored_candidate_bytes": 72000
+  },
+  "ablations": {
+    "equal_memory_bytes": 14000
+  },
+  "evidence_status": "planned_model_backed_run_batch_evaluation"
+}
