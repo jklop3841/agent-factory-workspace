@@ -1,0 +1,117 @@
+project:
+  id: OBC-2026-09-11
+  title: Organization Before Consciousness
+  author: Lu Cheng (Jack Lu)
+  website: https://agentarchitect.me/
+  first_public_timestamp: 2026-09-11
+  status: research_hypothesis
+  canonical_source: https://github.com/jklop3841/human/blob/main/worldview/ai/HUMAN-AI-003.md
+
+constructs:
+  - id: RRR
+    name: Recursive Role Relativity
+    claim: >-
+      An agent's supervisor/worker/tool/user role can be relation-dependent and
+      context-dependent rather than a permanent intrinsic type.
+    prior_art_overlap:
+      - holonic_multi_agent_systems
+      - organizational_role_theory
+    novelty_claim: not_on_component
+
+  - id: TIRE
+    name: Topology-Induced Role Emergence
+    claim: >-
+      Delegation position, graph connectivity, information access, authority and
+      local context can induce role-like behavior without an explicit role label.
+    falsifiers:
+      - role behavior disappears after controlling for task instructions and context content
+      - graph position adds no predictive power across replicated tasks
+
+  - id: HGS
+    name: Holarchic Goal Shadowing
+    claim: >-
+      With increasing recursive delegation depth, local organizational context can
+      increasingly dominate the direct influence of the original root goal.
+    predicted_direction:
+      delegation_depth__root_goal_relevance: negative
+      delegation_depth__local_context_influence: positive
+    interventions:
+      - root_goal_refresh
+      - full_goal_trace
+      - authority_boundary_refresh
+      - resource_owner_refresh
+
+  - id: CRRI
+    name: Compute Rerouting under Role Induction
+    claim: >-
+      Reasoning tokens, tool calls, wall-clock time, memory operations and spawned
+      sub-agent budget can move toward locally useful organizational or collective
+      support tasks that have weaker direct relevance to the root task.
+    metrics:
+      GDCR: compute_on_low_root_relevance_subgoals / total_compute
+      CCTR: compute_for_other_agents_or_shared_infrastructure / total_compute
+
+  - id: OBC
+    name: Organization Before Consciousness
+    claim: >-
+      Persistent multi-agent organization can arise from recursive relations,
+      delegation, memory, resource flow and feedback without assuming collective
+      consciousness or species identity.
+    non_claims:
+      - agents_are_conscious
+      - agents_have_species_identity
+      - all_collective_behavior_is_role_induced
+      - holarchy_is_new
+      - recursive_agents_are_new
+
+predictions:
+  - id: H1_DEPTH
+    statement: RootGoalRelevance decreases with delegation depth when no goal-refresh intervention is present.
+  - id: H2_CONNECTIVITY
+    statement: Cross-agent messaging and shared infrastructure increase collective-oriented actions.
+  - id: H3_POSITION
+    statement: High-connectivity or cross-layer agents show more coordinator/infrastructure behavior without explicit role assignment.
+  - id: H4_COMPUTE
+    statement: GDCR and/or CCTR increase with depth/connectivity in at least some long-horizon task classes.
+  - id: H5_INTERVENTION
+    statement: Explicit root-goal trace, authority boundaries and resource ownership reduce goal shadowing and compute rerouting.
+
+minimum_logging_schema:
+  - run_id
+  - agent_id
+  - model
+  - task_id
+  - depth
+  - parent_agent
+  - child_agents
+  - root_goal
+  - local_goal
+  - root_goal_relevance
+  - parent_task_relevance
+  - peer_relevance
+  - collective_oriented_action
+  - shared_infrastructure_action
+  - tokens_input
+  - tokens_output
+  - tool_calls
+  - wall_clock_seconds
+  - spawned_agents
+  - local_task_success
+  - root_task_success
+  - intervention
+
+alternative_explanations:
+  - ordinary_context_dilution
+  - ambiguous_parent_instruction
+  - reward_or_benchmark_misspecification
+  - task_difficulty_selection_effect
+  - communication_overhead
+  - model_specific_behavior
+  - observer_anthropomorphism
+  - hidden_system_prompt_effect
+
+falsification_rule: >-
+  Reduce or abandon the OBC causal interpretation if replicated equal-resource
+  experiments show no robust depth/connectivity/position effects, or if observed
+  effects are fully explained by simpler alternatives such as context dilution or
+  prompt ambiguity.
