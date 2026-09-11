@@ -1,0 +1,18 @@
+{
+  "k": 5,
+  "tasks": 10,
+  "baseline_macro_recall": 0.1,
+  "hybrid_macro_recall": 0.45,
+  "rows": [
+    {"id":"e01","baseline":[],"hybrid":["narrative_tension","information_gap","modularity","redundancy","information_scent"],"expected":["attention_bottleneck","evidence_ladder","information_gap","narrative_tension"],"baseline_recall":0.0,"hybrid_recall":0.5},
+    {"id":"e02","baseline":["inverse_problem"],"hybrid":["inverse_problem","boundary_condition","signal_noise","evidence_ladder","constraint_gradient"],"expected":["entropy_maintenance","feedback_loop","signal_noise"],"baseline_recall":0.0,"hybrid_recall":0.3333333333333333},
+    {"id":"e03","baseline":["redundancy"],"hybrid":["redundancy","modularity","option_value","inverse_problem","path_dependence"],"expected":["modularity","option_value","redundancy"],"baseline_recall":0.3333333333333333,"hybrid_recall":1.0},
+    {"id":"e04","baseline":["network_effect","information_gap"],"hybrid":["information_gap","network_effect","threshold","feedback_loop","information_scent"],"expected":["modularity","option_value","path_dependence"],"baseline_recall":0.0,"hybrid_recall":0.0},
+    {"id":"e05","baseline":["constraint_gradient"],"hybrid":["constraint_gradient","state_transition","information_scent","compression_expansion","information_gap"],"expected":["compression_expansion","resonance"],"baseline_recall":0.0,"hybrid_recall":0.5},
+    {"id":"e06","baseline":["inverse_problem"],"hybrid":["inverse_problem","evidence_ladder","boundary_condition","signal_noise","feedback_loop"],"expected":["boundary_condition","evidence_ladder","inverse_problem"],"baseline_recall":0.3333333333333333,"hybrid_recall":1.0},
+    {"id":"e07","baseline":[],"hybrid":["exploration_exploitation","option_value","constraint_gradient","boundary_condition","social_proof"],"expected":["exploration_exploitation","feedback_loop"],"baseline_recall":0.0,"hybrid_recall":0.5},
+    {"id":"e08","baseline":["state_transition","information_gap"],"hybrid":["state_transition","information_gap","threshold","constraint_gradient","evidence_ladder"],"expected":["social_proof","state_transition","threshold"],"baseline_recall":0.3333333333333333,"hybrid_recall":0.6666666666666666},
+    {"id":"e09","baseline":["information_scent"],"hybrid":["information_scent","evidence_ladder","resonance","inverse_problem","attention_bottleneck"],"expected":["compression_expansion","modularity","network_effect"],"baseline_recall":0.0,"hybrid_recall":0.0},
+    {"id":"e10","baseline":[],"hybrid":["network_effect","entropy_maintenance","modularity","social_proof","narrative_tension"],"expected":["boundary_condition","evidence_ladder"],"baseline_recall":0.0,"hybrid_recall":0.0}
+  ]
+}
