@@ -14,8 +14,11 @@
     "non_dominant_branch_pruning_ablation": "implemented",
     "repeated_run_orchestrator": "implemented",
     "bootstrap_analysis": "implemented",
+    "directional_bias_analysis_selftest": "passing",
     "deterministic_smoke_adapter": "implemented",
     "local_openai_compatible_adapter": "implemented",
+    "replication_result_schema": "implemented",
+    "replication_issue_template": "implemented",
     "github_actions_smoke": "passing"
   },
   "validated_smoke_invariants": {
@@ -23,7 +26,11 @@
     "same_B_C_task_calls": true,
     "same_B_C_candidate_count": true,
     "full_matrix_executes": true,
-    "note": "These are control-plane validation facts, not evidence that LRI outperforms monolithic recursive improvement."
+    "analyzer_can_classify_lineage_win_fixture": true,
+    "analyzer_can_classify_monolithic_win_fixture": true,
+    "analyzer_can_classify_no_difference_fixture": true,
+    "analyzer_can_classify_confounded_fixture": true,
+    "note": "These are control-plane validation facts and software directional-bias guards, not evidence that LRI outperforms monolithic recursive improvement."
   },
   "real_model_study": {
     "status": "not_started",
@@ -43,9 +50,12 @@
     "matrix_runner": "run_matrix.py",
     "repeated_runner": "run_repeated.py",
     "analysis": "analyze_repeats.py",
-    "local_adapter": "adapters/local_openai_compatible.py"
+    "analysis_selftest": "analysis_selftest.py",
+    "local_adapter": "adapters/local_openai_compatible.py",
+    "contribution_protocol": "../CONTRIBUTING.md",
+    "replication_schema": "../REPLICATION_RESULT.schema.json"
   },
-  "allowed_next_claim": "The experimental control plane is runnable and smoke-validated; LRI itself remains an unproven E0 hypothesis.",
+  "allowed_next_claim": "The experimental control plane is runnable, smoke-validated, and its automated result classifier passes symmetric favorable/unfavorable/confounded software fixtures; LRI itself remains an unproven E0 hypothesis.",
   "prohibited_claims": [
     "LRI has been empirically validated",
     "lineage recursive improvement is superior to monolithic RSI",
