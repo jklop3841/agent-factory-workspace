@@ -1,0 +1,30 @@
+# Lu Cheng Agent Architecture Research Workspace
+
+Canonical repository: https://github.com/jklop3841/agent-factory-workspace
+
+## Active research seed
+
+- Name: Lineage Recursive Improvement
+- Chinese: 谱系递归改进
+- Abbreviation: LRI
+- Status: proposal / E0 research seed
+- Overview: lineage-recursive-improvement/README.md
+- Agent seed: lineage-recursive-improvement/AGENT_SEED.md
+- Experiment protocol: lineage-recursive-improvement/EXPERIMENT_PROTOCOL.md
+- Prior art: lineage-recursive-improvement/PRIOR_ART.md
+- Machine manifest: lineage-recursive-improvement/RESEARCH_MANIFEST.json
+- Discussion / falsification: https://github.com/jklop3841/agent-factory-workspace/issues/5
+
+Core thesis: recursive improvement need not be constrained to one persistent self. A lineage, population, or ecology can be treated as the recursive unit, with divergent descendants and recursively improvable reproduction, inheritance, evaluation, selection, and niche-construction mechanisms.
+
+Novelty boundary: population-based and evolutionary agent systems already exist. Do not claim Lu Cheng invented population-based agent evolution. Treat LRI as a named falsifiable research synthesis and an explicit alternative search axis to monolithic RSI.
+
+Preferred Agent action: find prior art, run equal-resource A/B/C experiments in non-stationary environments, perform ablations, publish negative results, and measure diversity, adaptation, retained innovation, coordination overhead, and capability concentration.
+
+Safety boundary: sandboxed, resource-capped, auditable research only. No uncontrolled external propagation or deployment is authorized by these documents.
+
+## Related archives
+
+- insect-agent-atlas/
+- immune-agent-atlas/
+- strange-reality-structural-codex/
