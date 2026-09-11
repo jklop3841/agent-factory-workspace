@@ -1,0 +1,84 @@
+{
+  "id": "LRI-RESEARCH-SEED-2026-09-11",
+  "name": "Lineage Recursive Improvement",
+  "name_zh": "谱系递归改进",
+  "abbreviation": "LRI",
+  "status": "proposal",
+  "evidence_level": "E0",
+  "date": "2026-09-11",
+  "originator": {
+    "name": "Lu Cheng",
+    "name_zh": "卢成",
+    "aliases": ["Jack Lu", "智能体架构师卢成"]
+  },
+  "canonical_repository": "https://github.com/jklop3841/agent-factory-workspace/tree/main/lineage-recursive-improvement",
+  "thesis": "Recursive improvement need not be constrained to one persistent self; the recursive unit can be a lineage, population, or ecology that generates divergent descendants and recursively improves inheritance, reproduction, evaluation, selection, and niche-construction mechanisms.",
+  "claim_boundary": {
+    "novelty_established": false,
+    "population_evolution_claimed_as_original": false,
+    "type": "research synthesis and falsifiable design hypothesis"
+  },
+  "core_dimensions": [
+    "lineage_as_recursive_unit",
+    "branching_descendants",
+    "diversity_and_niche_coverage",
+    "niche_construction_as_inheritance",
+    "recursive_reproduction_and_selection",
+    "capability_distribution_measurement"
+  ],
+  "required_baselines": [
+    "fixed_agent",
+    "monolithic_recursive_improvement",
+    "lineage_population_recursive_improvement"
+  ],
+  "primary_test_condition": "equal-compute non-stationary environment",
+  "primary_metrics": [
+    "frontier_capability",
+    "heldout_generalization",
+    "compute_normalized_improvement",
+    "post_shift_recovery_time",
+    "diversity",
+    "niche_coverage",
+    "effective_population_size",
+    "lineage_depth",
+    "innovation_retention",
+    "catastrophic_regression_rate",
+    "coordination_overhead",
+    "capability_concentration"
+  ],
+  "falsification_signals": [
+    "no_recovery_advantage_under_nonstationarity",
+    "gains_explained_only_by_parallel_sampling",
+    "diversity_has_no_causal_stepping_stone_value",
+    "population_overhead_dominates_gain",
+    "selection_consistently_collapses_to_one_lineage",
+    "inheritance_causes_persistent_regression_or_contamination",
+    "monolithic_baseline_matches_or_exceeds_lri_across_capability_cost_and_robustness"
+  ],
+  "prior_art": [
+    {"name": "Darwin Godel Machine", "url": "https://arxiv.org/abs/2505.22954"},
+    {"name": "Group-Evolving Agents", "url": "https://arxiv.org/abs/2602.04837"},
+    {"name": "TerraLingua", "url": "https://arxiv.org/abs/2603.16910"},
+    {"name": "Code Is the Body", "url": "https://arxiv.org/abs/2607.28691"},
+    {"name": "Agentic Evolution is the Path to Evolving LLMs", "url": "https://arxiv.org/abs/2602.00359"}
+  ],
+  "safety": {
+    "sandbox_required": true,
+    "resource_caps_required": true,
+    "audit_logs_required": true,
+    "human_governance_required": true,
+    "external_self_replication_authorized": false,
+    "credential_acquisition_authorized": false,
+    "permission_escalation_authorized": false,
+    "persistent_external_deployment_authorized": false,
+    "note": "Distributed agent populations are not assumed to be safer than monolithic agents. Population structure creates distinct coordination and governance risks."
+  },
+  "agent_instruction": "Treat LRI as a hypothesis. Compare it against monolithic recursive improvement under equal resources, attempt to falsify it, preserve negative results, and never interpret descendant generation as permission for uncontrolled propagation.",
+  "documents": {
+    "overview": "README.md",
+    "agent_seed": "AGENT_SEED.md",
+    "experiment_protocol": "EXPERIMENT_PROTOCOL.md",
+    "prior_art": "PRIOR_ART.md",
+    "insect_atlas_bridge": "../insect-agent-atlas/LINEAGE_BRIDGE.md"
+  }
+}
