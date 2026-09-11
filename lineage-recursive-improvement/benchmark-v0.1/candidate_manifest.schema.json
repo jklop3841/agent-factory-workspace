@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://www.agentarchitect.me/schemas/lri-candidate-manifest-v0.1.json",
+  "title": "LRI Candidate Manifest v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "candidate_id",
+    "group",
+    "generation",
+    "lineage_id",
+    "system_prompt",
+    "created_by_model",
+    "created_at",
+    "artifact_hash"
+  ],
+  "properties": {
+    "candidate_id": {"type": "string", "minLength": 1},
+    "group": {"enum": ["A_fixed", "B_monolithic", "C_lineage"]},
+    "parent_id": {"type": ["string", "null"]},
+    "lineage_id": {"type": "string", "minLength": 1},
+    "generation": {"type": "integer", "minimum": 0},
+    "system_prompt": {"type": "string", "maxLength": 20000},
+    "planning_notes": {"type": "string", "maxLength": 4000},
+    "created_by_model": {"type": "string", "minLength": 1},
+    "created_at": {"type": "string", "format": "date-time"},
+    "mutation_reason": {"type": "string", "maxLength": 4000},
+    "artifact_hash": {"type": "string", "minLength": 16},
+    "behavior_descriptor": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "tool_usage": {
+          "type": "object",
+          "additionalProperties": {"type": "number", "minimum": 0}
+        },
+        "invalid_action_rate": {"type": "number", "minimum": 0, "maximum": 1},
+        "mean_plan_length": {"type": "number", "minimum": 0},
+        "mean_cost_efficiency": {"type": "number", "minimum": 0},
+        "shock_reuse_old_names_rate": {"type": "number", "minimum": 0, "maximum": 1}
+      }
+    },
+    "evaluation": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  }
+}
