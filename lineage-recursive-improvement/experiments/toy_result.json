@@ -1,0 +1,35 @@
+{
+  "experiment": "toy_lineage_shock",
+  "date": "2026-09-11",
+  "status": "mechanism_demonstration_only",
+  "real_agent_evidence_level": "E0_unchanged",
+  "interpretation": "Preserved niche diversity can create future option value under repeated observable environment changes in this deliberately simple toy model. This does not establish superiority for LLM agents or real RSI systems.",
+  "config": {
+    "targets": [2.0, 8.0, -5.0, 4.0],
+    "evaluations_per_generation": 8,
+    "generations_per_phase": 15,
+    "mutation_sigma": 1.25,
+    "archive_niches": 12,
+    "recovery_threshold": 1.0,
+    "seeds": 500
+  },
+  "mean_generations_to_recovery": {
+    "fixed": [16.0, 16.0, 16.0, 16.0],
+    "monolithic": [1.166, 3.414, 7.432, 5.092],
+    "lineage": [1.856, 2.51, 1.0, 1.0]
+  },
+  "median_generations_to_recovery": {
+    "fixed": [16.0, 16.0, 16.0, 16.0],
+    "monolithic": [1.0, 3.0, 7.0, 5.0],
+    "lineage": [1.0, 1.0, 1.0, 1.0]
+  },
+  "limitations": [
+    "one-dimensional policy space",
+    "observable target",
+    "cheap persistent archive",
+    "old strategies do not decay",
+    "no realistic model inference cost",
+    "not an LLM or tool-agent benchmark"
+  ],
+  "reproduction": "python experiments/toy_lineage_shock.py"
+}
