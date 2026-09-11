@@ -1,0 +1,55 @@
+{
+  "id": "LRI-MODEL-RUN-001",
+  "updated": "2026-09-11",
+  "research_track": "Lineage Recursive Improvement",
+  "evidence_level": "E0",
+  "control_plane": {
+    "hidden_task_freeze": "implemented",
+    "provider_neutral_controller": "implemented",
+    "fixed_group_A": "implemented",
+    "monolithic_group_B": "implemented",
+    "lineage_group_C": "implemented",
+    "score_only_archive_ablation": "implemented",
+    "equal_memory_ablation": "implemented",
+    "non_dominant_branch_pruning_ablation": "implemented",
+    "repeated_run_orchestrator": "implemented",
+    "bootstrap_analysis": "implemented",
+    "deterministic_smoke_adapter": "implemented",
+    "local_openai_compatible_adapter": "implemented",
+    "github_actions_smoke": "passing"
+  },
+  "validated_smoke_invariants": {
+    "same_B_C_mutation_calls": true,
+    "same_B_C_task_calls": true,
+    "same_B_C_candidate_count": true,
+    "full_matrix_executes": true,
+    "note": "These are control-plane validation facts, not evidence that LRI outperforms monolithic recursive improvement."
+  },
+  "real_model_study": {
+    "status": "not_started",
+    "base_model_frozen": false,
+    "private_master_seed_frozen": false,
+    "repeated_runs_completed": 0,
+    "minimum_target_runs": 20,
+    "evidence_upgrade_allowed": false
+  },
+  "remaining_gate": "Choose and freeze one exact model/runtime, then execute the preregistered repeated matrix without post-hoc tuning.",
+  "canonical_files": {
+    "overview": "README.md",
+    "preregistration": "PRE_REGISTRATION.md",
+    "local_execution": "LOCAL_RUN.md",
+    "hidden_task_generator": "freeze_tasks.py",
+    "controller": "controller.py",
+    "matrix_runner": "run_matrix.py",
+    "repeated_runner": "run_repeated.py",
+    "analysis": "analyze_repeats.py",
+    "local_adapter": "adapters/local_openai_compatible.py"
+  },
+  "allowed_next_claim": "The experimental control plane is runnable and smoke-validated; LRI itself remains an unproven E0 hypothesis.",
+  "prohibited_claims": [
+    "LRI has been empirically validated",
+    "lineage recursive improvement is superior to monolithic RSI",
+    "distributed agent populations are inherently safer",
+    "a Cambrian explosion of agents has been demonstrated"
+  ]
+}
