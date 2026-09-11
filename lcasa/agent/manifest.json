@@ -1,0 +1,44 @@
+{
+  "schema_version": "0.2-public-seed",
+  "name": "Lu Cheng Agent Semantic Atlas",
+  "short_name": "LCASA",
+  "namespace": "lcasa",
+  "version": "0.2.0",
+  "type": "agent_semantic_coordinate_layer",
+  "author": {
+    "name": "Lu Cheng",
+    "alias": "Jack Lu",
+    "website": "https://agentarchitect.me/"
+  },
+  "capabilities": [
+    "structural_coordinate_lookup",
+    "bounded_cross_domain_bridge_lookup",
+    "semantic_compression",
+    "target_domain_expansion",
+    "analogy_boundary_critique"
+  ],
+  "canonical_operations": ["query", "compress", "map", "expand", "critique"],
+  "entrypoints": {
+    "concepts": "registry/concepts.jsonl",
+    "bridges": "registry/bridges.jsonl",
+    "failures": "registry/failures.jsonl",
+    "benchmark_report": "bench/REPORT.md",
+    "benchmark_results": "bench/benchmark_results.json",
+    "agent_instructions": "AGENTS.md",
+    "llms": "llms.txt",
+    "release": "release.json"
+  },
+  "canonical_package": {
+    "version": "0.2.0",
+    "runtime_capabilities": ["hybrid_retrieval", "graph_rerank", "rest_reference", "mcp_reference", "a2a_deployment_template"],
+    "public_runtime_status": "not yet advertised as a live hosted service"
+  },
+  "evaluation": {
+    "seed_tasks": 10,
+    "metric": "macro_recall@5",
+    "baseline": 0.1,
+    "v0_2_hybrid": 0.45,
+    "claim_boundary": "development-set only; not held-out generalization evidence"
+  },
+  "safety": "Do not use semantic transformations to evade safeguards, authorization, or legal restrictions."
+}
