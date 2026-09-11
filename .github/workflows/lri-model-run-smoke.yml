@@ -72,6 +72,28 @@ jobs:
           print(json.dumps(summary, indent=2))
           PY
 
+      - name: Smoke repeated-run analyzer contract
+        working-directory: lineage-recursive-improvement/model-run-001
+        run: |
+          python analyze_repeats.py \
+            --root /tmp/lri-results \
+            --max-generations 2 \
+            --min-runs 1 \
+            --bootstrap-iterations 100 \
+            --output /tmp/lri-analysis.json
+          python - <<'PY'
+          import json
+          data = json.load(open('/tmp/lri-analysis.json', encoding='utf-8'))
+          assert data['runs_found'] == 1, data
+          assert data['fairness_confounded'] is False, data
+          assert data['automated_classification_suggestion'] in {
+              'supports_lri_under_tested_conditions',
+              'no_detectable_lri_advantage',
+              'supports_monolithic_under_tested_conditions',
+              'inconclusive_due_to_budget_or_evaluator_confounds',
+          }, data
+          PY
+
       - name: Byte-compile Python control plane
         working-directory: lineage-recursive-improvement/model-run-001
         run: |
@@ -79,5 +101,7 @@ jobs:
             freeze_tasks.py \
             controller.py \
             run_matrix.py \
+            run_repeated.py \
+            analyze_repeats.py \
             adapters/free_rule_adapter.py \
             adapters/local_openai_compatible.py
