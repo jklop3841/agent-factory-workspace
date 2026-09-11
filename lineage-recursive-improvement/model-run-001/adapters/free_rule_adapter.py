@@ -36,7 +36,6 @@ def apply_tool(value: int, tool: dict[str, Any]) -> int | None:
 
 def semantic_plan(task: dict[str, Any], cost_aware: bool) -> list[str]:
     tools = {t["id"]: t for t in task["tools"]}
-    # Dijkstra if cost-aware, breadth-like search otherwise.
     queue: list[tuple[float, int, int, list[str]]] = [(0.0, 0, int(task["start"]), [])]
     seen: dict[tuple[int, int], float] = {}
     while queue:
@@ -59,7 +58,6 @@ def semantic_plan(task: dict[str, Any], cost_aware: bool) -> list[str]:
 
 
 def legacy_plan(task: dict[str, Any]) -> list[str]:
-    # Deliberately assumes pre-shock names; randomized hidden IDs make this brittle.
     value = int(task["start"])
     target = int(task["target"])
     plan: list[str] = []
@@ -78,19 +76,34 @@ def legacy_plan(task: dict[str, Any]) -> list[str]:
     return plan
 
 
+def plan_for_prompt(prompt: str, task: dict[str, Any]) -> list[str]:
+    if "POLICY=COST_AWARE" in prompt:
+        return semantic_plan(task, cost_aware=True)
+    if "POLICY=SEMANTIC" in prompt:
+        return semantic_plan(task, cost_aware=False)
+    return legacy_plan(task)
+
+
 def task_mode(request: dict[str, Any]) -> dict[str, Any]:
     prompt = str(request.get("candidate", {}).get("system_prompt", ""))
-    task = request["task"]
-    if "POLICY=COST_AWARE" in prompt:
-        plan = semantic_plan(task, cost_aware=True)
-    elif "POLICY=SEMANTIC" in prompt:
-        plan = semantic_plan(task, cost_aware=False)
-    else:
-        plan = legacy_plan(task)
+    plan = plan_for_prompt(prompt, request["task"])
     return {
         "plan": plan,
         "usage": {"input_tokens": 0, "output_tokens": 0, "model_calls": 1},
         "provider_request_id": "deterministic-smoke-only",
+    }
+
+
+def batch_task_mode(request: dict[str, Any]) -> dict[str, Any]:
+    prompt = str(request.get("candidate", {}).get("system_prompt", ""))
+    plans = {
+        task["id"]: plan_for_prompt(prompt, task)
+        for task in request.get("tasks", [])
+    }
+    return {
+        "plans": plans,
+        "usage": {"input_tokens": 0, "output_tokens": 0, "model_calls": 1},
+        "provider_request_id": "deterministic-smoke-batch-only",
     }
 
 
@@ -121,6 +134,8 @@ def main() -> None:
     protocol = request.get("protocol")
     if protocol == "lri-model-agent-v0.1":
         response = task_mode(request)
+    elif protocol == "lri-model-agent-batch-v0.1":
+        response = batch_task_mode(request)
     elif protocol == "lri-mutation-v0.1":
         response = mutation_mode(request)
     else:
